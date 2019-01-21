@@ -8,10 +8,8 @@ class Exercise extends Component {
     const { exercise, onDelete } = this.props;
     const { name, reps, sets } = exercise;
     return (
-      <li
-        style={{ listStyleType: "none", background: "white", padding: "10px" }}
-      >
-        <h3>{`${name}: ${reps} reps for ${sets} sets`}</h3>
+      <li id="exercise">
+        <h4>{`${name}: ${reps} reps for ${sets} sets`}</h4>
         <Button
           bsSize="large"
           bsStyle="danger"

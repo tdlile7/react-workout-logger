@@ -1,0 +1,16 @@
+%display-settings {
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  @extend %display-settings;
+  margin: 0;
+}
+
+.navbar-brand {
+  @extend %display-settings;
+}
+nav h2 {
+  margin: 0;
+}

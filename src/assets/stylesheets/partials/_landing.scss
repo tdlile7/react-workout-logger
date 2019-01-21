@@ -1,33 +1,33 @@
-#landing .jumbotron {
+.jumbotron {
+  height: 30vh;
   margin: 0;
-  height: 25vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#landing .entry-point {
+#sign-in {
+  height: 60vh;
   display: flex;
   border: 3px solid black;
-  height: 75vh;
   justify-content: center;
   align-items: center;
 }
 
-#landing .modal-container > button {
-  margin: 25px;
-  height: 10vh;
-  width: 20vw;
-  font-size: 24px;
-}
-
-#landing .background-image {
+#landing-background {
   position: absolute;
-  top: 25vh;
+  top: 40vh;
   z-index: -1;
-  height: 75vh;
+  height: 60vh;
   width: 100vw;
   background: url("../images/landing.jpg");
   background-size: cover;
   opacity: 0.9;
+}
+
+#sign-in .modal-container > button {
+  margin: 25px;
+  height: 10vh;
+  width: 20vw;
+  font-size: 24px;
 }
