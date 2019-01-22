@@ -1,0 +1,16 @@
+%intro-display-setting {
+  display: flex;
+  justify-content: center;
+}
+
+#intro {
+  @extend %intro-display-setting;
+  height: 100%;
+  width: 100%;
+}
+
+#intro p {
+  width: 50%;
+  font-size: 32px;
+  margin: 30vh 0 0 0;
+}

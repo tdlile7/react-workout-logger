@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import "../assets/stylesheets/intro.scss";
 
 class Intro extends Component {
   render() {
-    return <h1>This is where instructions will be given</h1>;
+    return (
+      <div id="intro">
+        <p>Greetings, make a custom template and track your weights</p>
+      </div>
+    );
   }
 }
 

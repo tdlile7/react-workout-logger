@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TodoList from "./component/todoList";
-import NavBar from "./component/navBar";
+import NavBar from "./component/common/navBar";
 import Landing from "./component/landing";
 import { Switch, Route } from "react-router-dom";
 import "./assets/stylesheets/app.scss";
@@ -8,7 +8,7 @@ import "./assets/stylesheets/app.scss";
 class App extends Component {
   render() {
     return (
-      <div id="todolist">
+      <div id="app">
         <NavBar />
         <div id="content">
           <Switch>

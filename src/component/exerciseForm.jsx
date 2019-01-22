@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./formTemplate";
+import Form from "./common/formTemplate";
 
 const ExerciseForm = ({ onTodoSubmit, onInputChange, exercise }) => {
   const { name, reps, sets } = exercise;

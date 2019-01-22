@@ -11,7 +11,8 @@ class TodoList extends Component {
     return (
       <React.Fragment>
         <SubNav />
-        <div id="grid">
+        <div id="section">
+          <div id="section-background" />
           <Route path="/todolist/intro" component={Intro} />
           <Route path="/todolist/logs" component={Log} />
           <Route path="/todolist/templates" component={Template} />

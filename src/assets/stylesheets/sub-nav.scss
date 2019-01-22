@@ -1,0 +1,20 @@
+#sub-nav {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  background: #222;
+}
+
+.nav-btn {
+  background: #3377b7;
+  border-color: #2582d3;
+  height: 10vh;
+  width: 25vw;
+  color: white;
+  outline: none;
+  padding: 0;
+}
+
+.nav-btn:hover {
+  background: #81baf0;
+}

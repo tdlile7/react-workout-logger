@@ -45,7 +45,6 @@ class Template extends Component {
     const { exercise, todoItems } = this.state;
     return (
       <React.Fragment>
-        <div id="template-background" />
         <Label bsStyle="primary">
           <h2>Day</h2>
         </Label>
