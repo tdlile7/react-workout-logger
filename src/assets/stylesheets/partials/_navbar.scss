@@ -11,6 +11,19 @@
 .navbar-brand {
   @extend %display-settings;
 }
-nav h2 {
-  margin: 0;
+nav {
+  background: #222;
+
+  h2 {
+    margin: 0;
+  }
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: rgb(177, 174, 174);
+  }
 }

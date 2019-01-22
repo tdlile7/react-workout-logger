@@ -1,13 +1,12 @@
 import React from "react";
-import FormField from "./formField";
-import { Button, Form } from "react-bootstrap";
+import FormGroup from "./formGroup";
 
 const FormTemplate = ({ onTodoSubmit, onInputChange, inputs }) => {
   return (
-    <Form onSubmit={onTodoSubmit}>
+    <form onSubmit={onTodoSubmit}>
       {inputs.map(({ type, name, value }, i) => {
         return (
-          <FormField
+          <FormGroup
             type={type}
             name={name}
             value={value}
@@ -16,10 +15,10 @@ const FormTemplate = ({ onTodoSubmit, onInputChange, inputs }) => {
           />
         );
       })}
-      <Button type="submit" bsStyle="warning">
+      <button type="submit" class="btn btn-warning">
         Add
-      </Button>
-    </Form>
+      </button>
+    </form>
   );
 };
 

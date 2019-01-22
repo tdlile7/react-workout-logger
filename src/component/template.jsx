@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import TemplateForm from "./templateForm";
 import TemplateSideBar from "./templateSideBar";
-import "../assets/stylesheets/template.scss";
 
 class Template extends Component {
   render() {

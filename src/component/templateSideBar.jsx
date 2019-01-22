@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../assets/stylesheets/template-side-bar.scss";
 
 class TemplateSideBar extends Component {
   render() {

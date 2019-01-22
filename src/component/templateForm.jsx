@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import AddExercise from "./addExercise";
+import ExerciseForm from "./exerciseForm";
 import ExerciseList from "./exerciseList";
-import { Label } from "react-bootstrap";
-import "../assets/stylesheets/template-form.scss";
 
 class TemplateForm extends Component {
   state = {
@@ -45,13 +43,13 @@ class TemplateForm extends Component {
     const { exercise, todoItems } = this.state;
     return (
       <React.Fragment>
-        <Label bsStyle="primary">
-          <h2>Day</h2>
-        </Label>
-        <AddExercise
+        <h2>
+          <span class="badge badge-secondary">Day</span>
+        </h2>
+        <ExerciseForm
           onTodoSubmit={this.handleTodoSubmit}
-          exercise={exercise}
           onInputChange={this.handleInputChange}
+          exercise={exercise}
         />
         <ExerciseList todoItems={todoItems} onDelete={this.handleDelete} />
       </React.Fragment>

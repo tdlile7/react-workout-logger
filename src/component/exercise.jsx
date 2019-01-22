@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "react-bootstrap";
 
 class Exercise extends Component {
   render() {
@@ -10,13 +9,13 @@ class Exercise extends Component {
     return (
       <li id="exercise">
         <h4>{`${name}: ${reps} reps for ${sets} sets`}</h4>
-        <Button
-          bsSize="large"
-          bsStyle="danger"
+        <button
+          type="button"
+          className="btn btn-danger btn-lg"
           onClick={() => onDelete(exercise)}
         >
           <FontAwesomeIcon icon={faTrashAlt} />
-        </Button>
+        </button>
       </li>
     );
   }

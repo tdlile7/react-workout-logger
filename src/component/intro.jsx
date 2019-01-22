@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../assets/stylesheets/intro.scss";
 
 class Intro extends Component {
   render() {

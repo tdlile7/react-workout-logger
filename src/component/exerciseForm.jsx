@@ -26,6 +26,7 @@ const ExerciseForm = ({ onTodoSubmit, onInputChange, exercise }) => {
       onTodoSubmit={onTodoSubmit}
       onInputChange={onInputChange}
       inputs={formInputs}
+      className="example-form-class"
     />
   );
 };

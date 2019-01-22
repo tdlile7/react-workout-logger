@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "../assets/stylesheets/sub-nav.scss";
 
 const SubNav = () => {
   return (
