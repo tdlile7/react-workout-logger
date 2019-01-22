@@ -3,4 +3,23 @@
   width: 100%;
   display: flex;
   justify-content: center;
+
+  #side-bar {
+    width: 20%;
+    height: 35%;
+    background: white;
+    margin: 10vh 5vw 0 0;
+  }
+
+  #template-form {
+    width: 30%;
+    margin-top: 10vh;
+  }
+
+  #custom-template {
+    width: 25%;
+    height: 80%;
+    background: white;
+    margin: 10vh 0 0 10vh;
+  }
 }

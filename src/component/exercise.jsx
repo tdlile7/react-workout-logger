@@ -8,10 +8,10 @@ class Exercise extends Component {
     const { name, reps, sets } = exercise;
     return (
       <li id="exercise">
-        <h4>{`${name}: ${reps} reps for ${sets} sets`}</h4>
+        <p>{`${name}: ${reps} reps for ${sets} sets`}</p>
         <button
           type="button"
-          className="btn btn-danger btn-lg"
+          className="btn btn-danger btn-sm"
           onClick={() => onDelete(exercise)}
         >
           <FontAwesomeIcon icon={faTrashAlt} />

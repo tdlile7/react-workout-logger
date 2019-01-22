@@ -1,0 +1,59 @@
+#custom-template {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+
+  #exercise-list-container {
+    height: 70%;
+    overflow-y: scroll;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 5%;
+    }
+
+    #exercise-list {
+      padding: 0;
+    }
+
+    #exercise {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+      padding: 0 20px;
+      width: 100%;
+      border: 1px solid black;
+
+      button {
+        height: 50%;
+      }
+    }
+
+    #exercise:nth-child(odd) {
+      background: white;
+    }
+
+    #exercise:nth-child(even) {
+      background: rgb(177, 224, 252);
+    }
+  }
+
+  #submit-template-form-btn {
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    > button {
+      height: 50%;
+      width: 60%;
+      justify-self: flex-end;
+      margin-right: 5%;
+    }
+
+    > button:focus {
+      box-shadow: none;
+    }
+  }
+}
