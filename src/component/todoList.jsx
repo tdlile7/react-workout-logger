@@ -4,7 +4,7 @@ import Template from "./template";
 import SubNav from "./subNav";
 import Intro from "./intro";
 import { Route } from "react-router-dom";
-import "../assets/stylesheets/todolist.scss";
+import "../assets/stylesheets/section.scss";
 
 class TodoList extends Component {
   render() {

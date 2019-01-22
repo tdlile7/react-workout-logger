@@ -1,26 +1,6 @@
-.label {
-  display: block;
-}
-
-#section .modal-container {
+#template {
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
-}
-
-#section .modal-container > .btn {
-  width: 100%;
-  font-size: 18px;
-}
-
-#exercise-list {
-  padding: 0 25px;
-}
-
-#exercise {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-  background: white;
-  padding: 10px;
-  width: 100%;
 }

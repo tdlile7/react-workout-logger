@@ -1,0 +1,28 @@
+#side-bar {
+  width: 20%;
+  height: 35%;
+  background: white;
+  margin: 10vh 5vw 0 0;
+}
+
+#side-bar-menu {
+  list-style-type: none;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f1f1;
+}
+
+#side-bar-menu li {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ebf1f7;
+  border: 1.5px solid black;
+}
+
+#side-bar-menu li:hover {
+  background: rgb(155, 155, 155);
+  cursor: pointer;
+}
