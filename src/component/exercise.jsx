@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 class Exercise extends Component {
   render() {
@@ -9,6 +9,9 @@ class Exercise extends Component {
     return (
       <li id="exercise">
         <p>{`${name}: ${reps} reps for ${sets} sets`}</p>
+        <button type="button" className="btn btn-dark btn-sm">
+          <FontAwesomeIcon icon={faEdit} />
+        </button>
         <button
           type="button"
           className="btn btn-danger btn-sm"

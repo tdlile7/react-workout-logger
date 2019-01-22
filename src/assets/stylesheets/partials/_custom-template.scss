@@ -9,7 +9,15 @@
 
     h2 {
       text-align: center;
-      margin-bottom: 5%;
+      margin-bottom: 7.5px;
+
+      button {
+        margin-left: 10px;
+      }
+
+      button:focus {
+        box-shadow: none;
+      }
     }
 
     #exercise-list {

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ExerciseList from "./exerciseList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 class CustomTemplate extends Component {
   render() {
@@ -7,7 +9,12 @@ class CustomTemplate extends Component {
     return (
       <div id="custom-template">
         <div id="exercise-list-container">
-          <h2>Arm Day</h2>
+          <h2>
+            Arm Day
+            <button type="button" class="btn btn-dark">
+              <FontAwesomeIcon icon={faEdit} />
+            </button>
+          </h2>
           <ExerciseList todoItems={todoItems} onDelete={onDelete} />
         </div>
         <div id="submit-template-form-btn">
