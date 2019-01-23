@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import TemplateForm from "./templateForm";
-import TemplateSideBar from "./templateSideBar";
-import CustomTemplate from "./customTemplate";
+import TemplateNav from "./templateNav";
+import AddNewTemplate from "./addNewTemplate";
+import { Route } from "react-router-dom";
 
 class Template extends Component {
   state = {
@@ -40,13 +40,20 @@ class Template extends Component {
     const { todoItems, exercise } = this.state;
     return (
       <div id="template">
-        <TemplateSideBar />
-        <TemplateForm
-          onTodoSubmit={this.handleTodoSubmit}
-          onInputChange={this.handleInputChange}
-          exercise={exercise}
+        <Route path="/todolist/template" exact component={TemplateNav} />
+        <Route
+          path="/todolist/template/new"
+          render={props => (
+            <AddNewTemplate
+              exercise={exercise}
+              todoItems={todoItems}
+              onTodoSubmit={this.handleTodoSubmit}
+              onInputChange={this.handleInputChange}
+              onDelete={this.handleDelete}
+              {...props}
+            />
+          )}
         />
-        <CustomTemplate todoItems={todoItems} onDelete={this.handleDelete} />
       </div>
     );
   }

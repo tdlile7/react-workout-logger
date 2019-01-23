@@ -14,7 +14,7 @@ class TodoList extends Component {
           <div id="section-background" />
           <Route path="/todolist/intro" component={Intro} />
           <Route path="/todolist/logs" component={Log} />
-          <Route path="/todolist/templates" component={Template} />
+          <Route path="/todolist/template" component={Template} />
         </div>
       </React.Fragment>
     );

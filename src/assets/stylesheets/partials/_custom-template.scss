@@ -1,11 +1,10 @@
 #custom-template {
   display: flex;
   flex-direction: column;
-  // align-items: center;
 
   #exercise-list-container {
     height: 70%;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     h2 {
       text-align: center;
@@ -22,6 +21,10 @@
 
     #exercise-list {
       padding: 0;
+
+      li {
+        height: 7.5vh;
+      }
     }
 
     #exercise {
@@ -31,10 +34,19 @@
       list-style-type: none;
       padding: 0 20px;
       width: 100%;
-      border: 1px solid black;
+      // border: 1px solid black;
 
       button {
         height: 50%;
+        margin: 0.5px;
+      }
+
+      .btn-warning {
+        color: white;
+      }
+
+      p {
+        margin: 0;
       }
     }
 
@@ -54,8 +66,8 @@
     align-items: center;
 
     > button {
-      height: 50%;
-      width: 60%;
+      height: 40%;
+      width: 40%;
       justify-self: flex-end;
       margin-right: 5%;
     }

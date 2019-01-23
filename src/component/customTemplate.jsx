@@ -10,7 +10,7 @@ class CustomTemplate extends Component {
       <div id="custom-template">
         <div id="exercise-list-container">
           <h2>
-            Arm Day
+            Template Name
             <button type="button" class="btn btn-dark">
               <FontAwesomeIcon icon={faEdit} />
             </button>

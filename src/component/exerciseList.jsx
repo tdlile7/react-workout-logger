@@ -6,8 +6,16 @@ class ExerciseList extends Component {
     const { todoItems, onDelete } = this.props;
     return (
       <ul id="exercise-list">
-        {todoItems.map((exercise, i) => {
-          return <Exercise exercise={exercise} onDelete={onDelete} key={i} />;
+        {todoItems.map((exercise, i, arr) => {
+          return (
+            <Exercise
+              exercise={exercise}
+              onDelete={onDelete}
+              index={i}
+              length={arr.length}
+              key={i}
+            />
+          );
         })}
       </ul>
     );

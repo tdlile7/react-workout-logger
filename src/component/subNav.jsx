@@ -7,7 +7,7 @@ const SubNav = () => {
       <NavLink to="/todolist/intro">
         <button className="nav-btn">Get Started</button>
       </NavLink>
-      <NavLink to="/todolist/templates">
+      <NavLink to="/todolist/template">
         <button className="nav-btn">Template</button>
       </NavLink>
       <NavLink to="/todolist/logs">

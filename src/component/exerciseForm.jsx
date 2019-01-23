@@ -2,22 +2,22 @@ import React from "react";
 import Form from "./common/formTemplate";
 
 const ExerciseForm = ({ onTodoSubmit, onInputChange, exercise }) => {
-  const { name, reps, sets } = exercise;
+  const { Name, Reps, Sets } = exercise;
   const formInputs = [
     {
       type: "text",
-      name: "name",
-      value: name
+      name: "Name",
+      value: Name
     },
     {
       type: "number",
-      name: "reps",
-      value: reps
+      name: "Reps",
+      value: Reps
     },
     {
       type: "number",
-      name: "sets",
-      value: sets
+      name: "Sets",
+      value: Sets
     }
   ];
 

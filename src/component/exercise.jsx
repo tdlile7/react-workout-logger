@@ -1,24 +1,42 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrashAlt,
+  faEdit,
+  faArrowAltCircleUp,
+  faArrowAltCircleDown
+} from "@fortawesome/free-solid-svg-icons";
 
 class Exercise extends Component {
   render() {
-    const { exercise, onDelete } = this.props;
-    const { name, reps, sets } = exercise;
+    const { exercise, onDelete, index, length } = this.props;
+    const { Name, Reps, Sets } = exercise;
+
     return (
       <li id="exercise">
-        <p>{`${name}: ${reps} reps for ${sets} sets`}</p>
-        <button type="button" className="btn btn-dark btn-sm">
-          <FontAwesomeIcon icon={faEdit} />
-        </button>
-        <button
-          type="button"
-          className="btn btn-danger btn-sm"
-          onClick={() => onDelete(exercise)}
-        >
-          <FontAwesomeIcon icon={faTrashAlt} />
-        </button>
+        <p>{`${Name}: ${Reps} reps for ${Sets} sets`}</p>
+        <div id="exercise-btn">
+          <button type="button" className="btn btn-dark btn-sm">
+            <FontAwesomeIcon icon={faEdit} />
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger btn-sm"
+            onClick={() => onDelete(exercise)}
+          >
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </button>
+          {length > 1 && index !== 0 && (
+            <button type="button" className="btn btn-warning btn-sm">
+              <FontAwesomeIcon icon={faArrowAltCircleUp} />
+            </button>
+          )}
+          {length > 1 && index !== length - 1 && (
+            <button type="button" className="btn btn-warning btn-sm">
+              <FontAwesomeIcon icon={faArrowAltCircleDown} />
+            </button>
+          )}
+        </div>
       </li>
     );
   }

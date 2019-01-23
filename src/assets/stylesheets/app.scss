@@ -6,6 +6,7 @@
 
 .navbar {
   min-height: 10vh;
+  width: 90vw;
 }
 
 #content {
@@ -24,7 +25,7 @@
 
 @import "./partials/template";
 
-@import "./partials/template-side-bar";
+@import "./partials/template-nav";
 
 @import "./partials/template-form";
 
