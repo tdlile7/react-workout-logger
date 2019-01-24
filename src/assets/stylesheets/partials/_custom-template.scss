@@ -1,79 +1,104 @@
-#custom-template {
-  display: flex;
-  flex-direction: column;
+@media (min-width: 1200px) {
+  #custom-template {
+    display: flex;
+    flex-direction: column;
 
-  #exercise-list-container {
-    height: 70%;
-    overflow-y: auto;
+    #exercise-list-container {
+      height: 70%;
+      overflow-y: auto;
 
-    h2 {
-      text-align: center;
-      margin-bottom: 7.5px;
+      h2 {
+        text-align: center;
+        margin-bottom: 7.5px;
 
-      button {
-        margin-left: 10px;
+        button {
+          margin-left: 10px;
+        }
+
+        button:focus {
+          box-shadow: none;
+        }
       }
 
-      button:focus {
+      #exercise-list {
+        padding: 0;
+
+        li {
+          height: 7.5vh;
+        }
+      }
+
+      %intro-display-setting {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #intro {
+        @extend %intro-display-setting;
+        height: 100%;
+        width: 100%;
+      }
+
+      #intro p {
+        @extend %intro-display-setting;
+        text-align: center;
+        width: 50%;
+        height: 50%;
+        font-size: 32px;
+        margin: 0;
+        background: white;
+        border-radius: 25px;
+      }
+
+      #exercise {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style-type: none;
+        padding: 0 20px;
+        width: 100%;
+        // border: 1px solid black;
+
+        button {
+          height: 50%;
+          margin: 0.5px;
+        }
+
+        .btn-warning {
+          color: white;
+        }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      #exercise:nth-child(odd) {
+        background: white;
+      }
+
+      #exercise:nth-child(even) {
+        background: rgb(177, 224, 252);
+      }
+    }
+
+    #submit-template-form-btn {
+      height: 30%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      > button {
+        height: 40%;
+        width: 40%;
+        justify-self: flex-end;
+        margin-right: 5%;
+      }
+
+      > button:focus {
         box-shadow: none;
       }
-    }
-
-    #exercise-list {
-      padding: 0;
-
-      li {
-        height: 7.5vh;
-      }
-    }
-
-    #exercise {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      list-style-type: none;
-      padding: 0 20px;
-      width: 100%;
-      // border: 1px solid black;
-
-      button {
-        height: 50%;
-        margin: 0.5px;
-      }
-
-      .btn-warning {
-        color: white;
-      }
-
-      p {
-        margin: 0;
-      }
-    }
-
-    #exercise:nth-child(odd) {
-      background: white;
-    }
-
-    #exercise:nth-child(even) {
-      background: rgb(177, 224, 252);
-    }
-  }
-
-  #submit-template-form-btn {
-    height: 30%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-    > button {
-      height: 40%;
-      width: 40%;
-      justify-self: flex-end;
-      margin-right: 5%;
-    }
-
-    > button:focus {
-      box-shadow: none;
     }
   }
 }

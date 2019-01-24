@@ -5,6 +5,7 @@
 
 .navbar {
   @extend %display-settings;
+  justify-content: center;
   margin: 0;
 }
 
@@ -25,5 +26,13 @@ nav {
   a:hover {
     text-decoration: none;
     color: rgb(177, 174, 174);
+  }
+}
+
+// --------------------------------------------------------
+
+@media (min-width: 768px) {
+  .navbar {
+    justify-content: flex-start;
   }
 }

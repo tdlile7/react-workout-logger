@@ -1,49 +1,51 @@
-#template {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-  #template-nav {
-    display: flex;
-    justify-content: center;
+@media (min-width: 1200px) {
+  #template {
+    height: 100%;
     width: 100%;
-    height: 100%;
-    margin: 15vh 0 0 0;
-  }
-
-  #template-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 70%;
-    width: 20%;
-    margin-top: 10vh;
-    background: white;
-    border: 7.5px solid black;
-    border-radius: 25px;
-    overflow: hidden;
-  }
-
-  #transfer-arrow {
-    height: 100%;
-    width: 10%;
     display: flex;
     justify-content: center;
-    align-items: center;
 
-    svg {
-      font-size: 128px;
+    #template-nav {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      margin: 15vh 0 0 0;
     }
-  }
 
-  #custom-template {
-    overflow: hidden;
-    width: 55%;
-    height: 80%;
-    background: white;
-    margin: 10vh 0 0 0;
-    border: 4px solid black;
-    border-radius: 20px;
+    #template-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 80%;
+      width: 20%;
+      margin-top: 10vh;
+      background: white;
+      border: 7.5px solid black;
+      border-radius: 25px;
+      overflow: hidden;
+    }
+
+    #transfer-arrow {
+      height: 100%;
+      width: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        font-size: 128px;
+      }
+    }
+
+    #custom-template {
+      overflow: hidden;
+      width: 55%;
+      height: 80%;
+      background: white;
+      margin: 10vh 0 0 0;
+      border: 4px solid black;
+      border-radius: 20px;
+    }
   }
 }

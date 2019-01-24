@@ -1,25 +1,27 @@
-#sub-nav {
-  height: 10vh;
-  display: flex;
-  align-items: center;
-  background: #222;
-
-  .nav-btn {
-    background: #3377b7;
-    border-color: #2582d3;
+@media (min-width: 1200px) {
+  #sub-nav {
     height: 10vh;
-    width: 30vw;
-    color: white;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-  }
+    display: flex;
+    align-items: center;
+    background: #222;
 
-  .nav-btn:hover {
-    background: #084279;
-  }
+    .nav-btn {
+      background: #3377b7;
+      border-color: #2582d3;
+      height: 10vh;
+      width: 30vw;
+      color: white;
+      outline: none;
+      padding: 0;
+      cursor: pointer;
+    }
 
-  a.active .nav-btn {
-    background: #084279;
+    .nav-btn:hover {
+      background: #084279;
+    }
+
+    a.active .nav-btn {
+      background: #084279;
+    }
   }
 }

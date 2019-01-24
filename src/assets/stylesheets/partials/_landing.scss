@@ -1,48 +1,38 @@
-.jumbotron {
-  margin: 0;
-}
-
 #landing-headline {
-  height: 30vh;
-  width: 90vw;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
 
 #sign-in {
-  height: 60vh;
-  width: 90vw;
+  height: 90vh;
+  width: 100vw;
   display: flex;
-  border: 3px solid black;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   > button {
-    height: 15%;
-    width: 15%;
+    height: 25%;
+    width: 70%;
     border-color: #001c3a;
-    margin: 0 2.5vw;
   }
 }
 
 #landing-background {
   position: absolute;
-  top: 40vh;
-  left: 5vw;
   z-index: -1;
-  height: 60vh;
-  width: 90vw;
+  height: 90vh;
+  width: 100vw;
   background: url("../images/landing.jpg");
   background-size: cover;
   opacity: 0.9;
 }
 
 #description-section {
-  height: 50vh;
-  width: 90vw;
+  height: 150vh;
+  width: 100vw;
+  margin: 0;
   display: flex;
+  flex-direction: column;
 
   div {
     flex: 1;
@@ -53,27 +43,83 @@
 
     svg {
       font-size: 40px;
-      margin: 7.5vh 0 2.5vh 0;
+      margin: 5vh 0;
     }
 
     p {
-      font-size: 20px;
+      font-size: 1.25rem;
       text-align: center;
     }
   }
 }
 
 #footer {
-  height: 10vh;
-  width: 90vw;
+  height: 30vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #222;
 
   h2 {
-    font-size: 24px;
+    font-size: 1rem;
     text-align: center;
     color: white;
+  }
+}
+
+@media (min-width: 768px) {
+  #landing-headline {
+    height: 30vh;
+    width: 90vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .jumbotron {
+      margin: 0;
+    }
+  }
+
+  #sign-in {
+    height: 60vh;
+    width: 90vw;
+    flex-direction: row;
+    border: 3px solid black;
+
+    > button {
+      height: 15%;
+      width: 15%;
+      margin: 0 2.5vw;
+    }
+  }
+
+  #landing-background {
+    top: 40vh;
+    left: 5vw;
+    height: 60vh;
+    width: 90vw;
+  }
+
+  #description-section {
+    height: 50vh;
+    width: 90vw;
+    flex-direction: row;
+
+    div {
+      svg {
+        margin: 7.5vh 0 2.5vh 0;
+      }
+    }
+  }
+
+  #footer {
+    height: 10vh;
+    width: 90vw;
+
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 }

@@ -1,13 +1,15 @@
-#section {
-  height: 80vh;
-}
+@media (min-width: 1200px) {
+  #section {
+    height: 80vh;
+  }
 
-#section-background {
-  position: absolute;
-  z-index: -1;
-  top: 20vh;
-  height: 80vh;
-  width: 90vw;
-  background: url("../images/todolist.jpg");
-  background-size: cover;
+  #section-background {
+    position: absolute;
+    z-index: -1;
+    top: 20vh;
+    height: 80vh;
+    width: 90vw;
+    background: url("../images/todolist.jpg");
+    background-size: cover;
+  }
 }

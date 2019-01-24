@@ -36,6 +36,8 @@ class Template extends Component {
     this.setState({ exercise });
   };
 
+  // handleMoveUp =
+
   render() {
     const { todoItems, exercise } = this.state;
     return (
