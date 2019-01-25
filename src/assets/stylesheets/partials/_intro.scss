@@ -1,24 +1,22 @@
-@media (min-width: 1200px) {
-  %intro-display-setting {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+%intro-display-setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  #intro {
-    @extend %intro-display-setting;
-    height: 100%;
-    width: 100%;
-  }
+#intro {
+  @extend %intro-display-setting;
+  height: 100%;
+  width: 100%;
+}
 
-  #intro p {
-    @extend %intro-display-setting;
-    text-align: center;
-    width: 50%;
-    height: 50%;
-    font-size: 32px;
-    margin: 0;
-    background: white;
-    border-radius: 25px;
-  }
+#intro p {
+  @extend %intro-display-setting;
+  text-align: center;
+  width: 80%;
+  height: 80%;
+  font-size: 32px;
+  margin: 0;
+  background: white;
+  border-radius: 25px;
 }

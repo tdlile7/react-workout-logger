@@ -1,27 +1,33 @@
-@media (min-width: 1200px) {
-  #sub-nav {
+#sub-nav {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  background: #222;
+
+  .nav-btn {
+    background: #3377b7;
+    border-color: #2582d3;
     height: 10vh;
-    display: flex;
-    align-items: center;
-    background: #222;
+    width: 33.33vw;
+    color: white;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
+  }
 
+  .nav-btn:hover {
+    background: #084279;
+  }
+
+  a.active .nav-btn {
+    background: #084279;
+  }
+}
+
+@media (min-width: 600px) {
+  #sub-nav {
     .nav-btn {
-      background: #3377b7;
-      border-color: #2582d3;
-      height: 10vh;
       width: 30vw;
-      color: white;
-      outline: none;
-      padding: 0;
-      cursor: pointer;
-    }
-
-    .nav-btn:hover {
-      background: #084279;
-    }
-
-    a.active .nav-btn {
-      background: #084279;
     }
   }
 }

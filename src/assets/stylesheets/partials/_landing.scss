@@ -68,7 +68,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   #landing-headline {
     height: 30vh;
     width: 90vw;
@@ -89,8 +89,8 @@
     border: 3px solid black;
 
     > button {
-      height: 15%;
-      width: 15%;
+      height: 20%;
+      width: 25%;
       margin: 0 2.5vw;
     }
   }
@@ -103,15 +103,7 @@
   }
 
   #description-section {
-    height: 50vh;
     width: 90vw;
-    flex-direction: row;
-
-    div {
-      svg {
-        margin: 7.5vh 0 2.5vh 0;
-      }
-    }
   }
 
   #footer {
@@ -120,6 +112,19 @@
 
     h2 {
       font-size: 1.5rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #description-section {
+    height: 50vh;
+    flex-direction: row;
+
+    div {
+      svg {
+        margin: 7.5vh 0 2.5vh 0;
+      }
     }
   }
 }

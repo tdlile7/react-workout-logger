@@ -1,26 +1,44 @@
-@media (min-width: 1200px) {
+#template-nav > a {
+  height: 30vh;
+  width: 80vw;
+  margin: 2.5vh 0;
+}
+
+.template-nav-btn {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  background: #eef1f5;
+  border: 2px solid black;
+  outline: none;
+  border-radius: 90px;
+}
+
+.template-nav-btn:hover {
+  background: rgb(202, 201, 201);
+  cursor: pointer;
+}
+
+.template-nav-btn:focus {
+  outline: none;
+}
+
+@media (min-width: 600px) {
   #template-nav > a {
-    height: 15vh;
-    width: 20vw;
+    height: 20vh;
+    width: 50vw;
+  }
+}
+
+@media (min-width: 768px) {
+  #template-nav > a {
+    width: 35vw;
+  }
+}
+
+@media (min-width: 992px) {
+  #template-nav > a {
+    width: 25vw;
     margin: 0 2.5vw;
-  }
-
-  .template-nav-btn {
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    background: #eef1f5;
-    border: 2px solid black;
-    outline: none;
-    border-radius: 45px;
-  }
-
-  .template-nav-btn:hover {
-    background: rgb(202, 201, 201);
-    cursor: pointer;
-  }
-
-  .template-nav-btn:focus {
-    outline: none;
   }
 }
