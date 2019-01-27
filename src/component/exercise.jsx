@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import EditExerciseBtn from "./editExerciseBtn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
-  faEdit,
   faArrowAltCircleUp,
   faArrowAltCircleDown
 } from "@fortawesome/free-solid-svg-icons";
@@ -16,9 +16,7 @@ class Exercise extends Component {
       <li id="exercise">
         <p>{`${Name}: ${Reps} reps for ${Sets} sets`}</p>
         <div id="exercise-btn">
-          <button type="button" className="btn btn-dark btn-sm">
-            <FontAwesomeIcon icon={faEdit} />
-          </button>
+          <EditExerciseBtn title="example" body="Hello" />
           <button
             type="button"
             className="btn btn-danger btn-sm"
