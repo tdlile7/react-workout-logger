@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import EditExerciseForm from "./editExerciseForm";
+// import EditExerciseForm from "./editExerciseForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
@@ -41,9 +41,7 @@ class EditExerciseBtn extends Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body">
-                <EditExerciseForm />
-              </div>
+              <div className="modal-body">{/* <EditExerciseForm /> */}</div>
               <div className="modal-footer">
                 <button
                   type="button"

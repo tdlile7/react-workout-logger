@@ -1,34 +1,47 @@
 import React from "react";
-import Form from "./common/formTemplate";
+import Joi from "joi-browser";
+import Form from "./common/form";
 
-const ExerciseForm = ({ onTodoSubmit, onInputChange, exercise }) => {
-  const { Name, Reps, Sets } = exercise;
-  const formInputs = [
-    {
-      type: "text",
-      name: "Name",
-      value: Name
+class ExerciseForm extends Form {
+  state = {
+    data: {
+      name: "",
+      reps: "",
+      sets: ""
     },
-    {
-      type: "number",
-      name: "Reps",
-      value: Reps
-    },
-    {
-      type: "number",
-      name: "Sets",
-      value: Sets
-    }
-  ];
+    errors: {}
+  };
 
-  return (
-    <Form
-      onTodoSubmit={onTodoSubmit}
-      onInputChange={onInputChange}
-      inputs={formInputs}
-      className="example-form-class"
-    />
-  );
-};
+  schema = {
+    name: Joi.string()
+      .required()
+      .label("Name"),
+    reps: Joi.number()
+      .required()
+      .min(0)
+      .max(30)
+      .label("Reps"),
+    sets: Joi.number()
+      .required()
+      .min(0)
+      .max(20)
+      .label("Sets")
+  };
+
+  doSubmit = () => {
+    this.props.onTodoSubmit(this.state.data);
+  };
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        {this.renderInput("name", "Name")}
+        {this.renderInput("reps", "Reps", "number")}
+        {this.renderInput("sets", "Sets", "number")}
+        {this.renderButton("Save")}
+      </form>
+    );
+  }
+}
 
 export default ExerciseForm;

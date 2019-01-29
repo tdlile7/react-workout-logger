@@ -6,20 +6,10 @@ import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 
 class AddNewTemplate extends Component {
   render() {
-    const {
-      onTodoSubmit,
-      onInputChange,
-      onDelete,
-      todoItems,
-      exercise
-    } = this.props;
+    const { onTodoSubmit, onDelete, todoItems } = this.props;
     return (
       <React.Fragment>
-        <TemplateForm
-          onTodoSubmit={onTodoSubmit}
-          onInputChange={onInputChange}
-          exercise={exercise}
-        />
+        <TemplateForm onTodoSubmit={onTodoSubmit} />
         <div id="transfer-arrow">
           <FontAwesomeIcon icon={faLongArrowAltRight} />
         </div>

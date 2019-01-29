@@ -10,11 +10,11 @@ import {
 class Exercise extends Component {
   render() {
     const { exercise, onDelete, index, length } = this.props;
-    const { Name, Reps, Sets } = exercise;
+    const { name, reps, sets } = exercise;
 
     return (
       <li id="exercise">
-        <p>{`${Name}: ${Reps} reps for ${Sets} sets`}</p>
+        <p>{`${name}: ${reps} reps for ${sets} sets`}</p>
         <div id="exercise-btn">
           <EditExerciseBtn title="example" body="Hello" />
           <button

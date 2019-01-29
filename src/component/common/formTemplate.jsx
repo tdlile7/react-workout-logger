@@ -1,12 +1,12 @@
 import React from "react";
-import FormGroup from "./formGroup";
+import Input from "./input3";
 
 const FormTemplate = ({ onTodoSubmit, onInputChange, inputs }) => {
   return (
     <form onSubmit={onTodoSubmit}>
       {inputs.map(({ type, name, value }, i) => {
         return (
-          <FormGroup
+          <Input
             type={type}
             name={name}
             value={value}

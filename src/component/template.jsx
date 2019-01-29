@@ -9,11 +9,7 @@ class Template extends Component {
     exercise: {}
   };
 
-  handleTodoSubmit = e => {
-    e.preventDefault();
-    const keys = Object.keys(this.state.exercise);
-    let exercise = {};
-    keys.map(key => (exercise[key] = e.target[key].value));
+  handleTodoSubmit = exercise => {
     if (this.state.todoItems.length === 0)
       this.setState({ todoItems: [exercise] });
     else {
@@ -30,16 +26,12 @@ class Template extends Component {
     this.setState({ todoItems });
   };
 
-  handleInputChange = e => {
-    let exercise = { ...this.state.exercise };
-    exercise[e.target.name] = e.target.name.value;
-    this.setState({ exercise });
-  };
-
-  // handleMoveUp =
+  // componentDidUpdate() {
+  //   console.log(this.state.todoItems);
+  // }
 
   render() {
-    const { todoItems, exercise } = this.state;
+    const { todoItems } = this.state;
     return (
       <div id="template">
         <Route path="/todolist/template" exact component={TemplateNav} />
@@ -47,10 +39,8 @@ class Template extends Component {
           path="/todolist/template/new"
           render={props => (
             <AddNewTemplate
-              exercise={exercise}
               todoItems={todoItems}
               onTodoSubmit={this.handleTodoSubmit}
-              onInputChange={this.handleInputChange}
               onDelete={this.handleDelete}
               {...props}
             />
