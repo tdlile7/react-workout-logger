@@ -1,17 +1,26 @@
 import React from "react";
 
-const Modal = ({ title, body }) => {
+const Modal = ({
+  title,
+  body,
+  btnClasses = "btn btn-primary",
+  btnTitle = null
+}) => {
   const target = `#${title}`;
+
+  let btn = btnTitle;
+  if (!btn) btn = title;
+
   return (
     <React.Fragment>
       <button
         button
         type="button"
-        className="btn btn-primary"
+        className={btnClasses}
         data-toggle="modal"
         data-target={target}
       >
-        {title}
+        {btn}
       </button>
       <div
         className="modal fade"
@@ -25,7 +34,7 @@ const Modal = ({ title, body }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalCenterTitle">
-                Modal title
+                {title}
               </h5>
               <button
                 type="button"

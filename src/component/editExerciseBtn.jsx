@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-// import EditExerciseForm from "./editExerciseForm";
+import ExerciseForm from "./exerciseForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 class EditExerciseBtn extends Component {
   render() {
-    const { title } = this.props;
+    const { title, exercise, index } = this.props;
     const target = `#${title}`;
     return (
       <React.Fragment>
@@ -29,9 +29,9 @@ class EditExerciseBtn extends Component {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalCenterTitle">
-                  Modal title
-                </h5>
+                <h2 className="modal-title" id="exampleModalCenterTitle">
+                  <span class="badge badge-secondary">Edit Form</span>
+                </h2>
                 <button
                   type="button"
                   className="close"
@@ -41,7 +41,9 @@ class EditExerciseBtn extends Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body">{/* <EditExerciseForm /> */}</div>
+              <div className="modal-body">
+                <ExerciseForm exercise={exercise} edit={true} key={index} />
+              </div>
               <div className="modal-footer">
                 <button
                   type="button"

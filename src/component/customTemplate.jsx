@@ -5,7 +5,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 class CustomTemplate extends Component {
   render() {
-    const { onDelete, todoItems } = this.props;
+    const { onDelete, todoItems, onShiftUp, onShiftDown } = this.props;
     return (
       <div id="custom-template">
         <div id="exercise-list-container">
@@ -15,7 +15,12 @@ class CustomTemplate extends Component {
               <FontAwesomeIcon icon={faEdit} />
             </button>
           </h2>
-          <ExerciseList todoItems={todoItems} onDelete={onDelete} />
+          <ExerciseList
+            todoItems={todoItems}
+            onShiftUp={onShiftUp}
+            onShiftDown={onShiftDown}
+            onDelete={onDelete}
+          />
         </div>
         <div id="submit-template-form-btn">
           <button type="button" class="btn btn-outline-primary disabled">

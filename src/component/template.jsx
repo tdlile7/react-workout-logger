@@ -5,8 +5,7 @@ import { Route } from "react-router-dom";
 
 class Template extends Component {
   state = {
-    todoItems: [],
-    exercise: {}
+    todoItems: []
   };
 
   handleTodoSubmit = exercise => {
@@ -26,9 +25,27 @@ class Template extends Component {
     this.setState({ todoItems });
   };
 
-  // componentDidUpdate() {
-  //   console.log(this.state.todoItems);
-  // }
+  handleShiftUp = exercise => {
+    let todoItems = [...this.state.todoItems];
+    const index = todoItems.indexOf(exercise);
+    const temp = todoItems[index - 1];
+    todoItems[index - 1] = exercise;
+    todoItems[index] = temp;
+    this.setState({ todoItems });
+  };
+
+  handleShiftDown = exercise => {
+    let todoItems = [...this.state.todoItems];
+    const index = todoItems.indexOf(exercise);
+    const temp = todoItems[index + 1];
+    todoItems[index + 1] = exercise;
+    todoItems[index] = temp;
+    this.setState({ todoItems });
+  };
+
+  componentDidUpdate() {
+    console.log(this.state.todoItems);
+  }
 
   render() {
     const { todoItems } = this.state;
@@ -41,6 +58,8 @@ class Template extends Component {
             <AddNewTemplate
               todoItems={todoItems}
               onTodoSubmit={this.handleTodoSubmit}
+              onShiftUp={this.handleShiftUp}
+              onShiftDown={this.handleShiftDown}
               onDelete={this.handleDelete}
               {...props}
             />

@@ -1,19 +1,30 @@
 import React, { Component } from "react";
-import TemplateForm from "./templateForm";
 import CustomTemplate from "./customTemplate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
+import ExerciseForm from "./exerciseForm";
 
 class AddNewTemplate extends Component {
   render() {
-    const { onTodoSubmit, onDelete, todoItems } = this.props;
+    const {
+      onTodoSubmit,
+      onShiftUp,
+      onShiftDown,
+      onDelete,
+      todoItems
+    } = this.props;
     return (
       <React.Fragment>
-        <TemplateForm onTodoSubmit={onTodoSubmit} />
+        <ExerciseForm onTodoSubmit={onTodoSubmit} />
         <div id="transfer-arrow">
           <FontAwesomeIcon icon={faLongArrowAltRight} />
         </div>
-        <CustomTemplate todoItems={todoItems} onDelete={onDelete} />
+        <CustomTemplate
+          todoItems={todoItems}
+          onShiftUp={onShiftUp}
+          onShiftDown={onShiftDown}
+          onDelete={onDelete}
+        />
       </React.Fragment>
     );
   }

@@ -9,6 +9,7 @@ class ExerciseForm extends Form {
       reps: "",
       sets: ""
     },
+    idCounter: 0,
     errors: {}
   };
 
@@ -29,17 +30,37 @@ class ExerciseForm extends Form {
   };
 
   doSubmit = () => {
-    this.props.onTodoSubmit(this.state.data);
+    const { onTodoSubmit } = this.props;
+    const todo = {
+      id: this.state.idCounter,
+      ...this.state.data
+    };
+    onTodoSubmit(todo);
+
+    //Reset input values
+    const data = { ...this.state.data };
+
+    //Increment todo index
+    let idCounter = this.state.idCounter + 1;
+
+    const keys = Object.keys(data);
+    keys.map(key => (data[key] = ""));
+    this.setState({ data, idCounter });
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        {this.renderInput("name", "Name")}
-        {this.renderInput("reps", "Reps", "number")}
-        {this.renderInput("sets", "Sets", "number")}
-        {this.renderButton("Save")}
-      </form>
+      <div id="template-form">
+        <h2>
+          <span class="badge badge-secondary">Template Form</span>
+        </h2>
+        <form onSubmit={this.handleSubmit}>
+          {this.renderInput("name", "Name", "text")}
+          {this.renderInput("reps", "Reps", "number")}
+          {this.renderInput("sets", "Sets", "number")}
+          {this.renderButton("Save")}
+        </form>
+      </div>
     );
   }
 }
