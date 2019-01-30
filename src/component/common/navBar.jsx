@@ -6,7 +6,7 @@ class NavBarComponent extends Component {
     return (
       <nav class="navbar bg-inverse">
         <Link to="/">
-          <h2>TodoApp</h2>
+          <h2>WEPlan</h2>
         </Link>
       </nav>
     );

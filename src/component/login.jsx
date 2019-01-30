@@ -19,7 +19,7 @@ class Login extends Component {
 
     return (
       <React.Fragment>
-        <Modal title="Login" body={body} />
+        <Modal title="Login" body={body} btnCover="Login" />
       </React.Fragment>
     );
   }

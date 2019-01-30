@@ -1,15 +1,7 @@
 import React from "react";
 
-const Modal = ({
-  title,
-  body,
-  btnClasses = "btn btn-primary",
-  btnTitle = null
-}) => {
+const Modal = ({ title, body, btnClasses = "btn btn-primary", btnCover }) => {
   const target = `#${title}`;
-
-  let btn = btnTitle;
-  if (!btn) btn = title;
 
   return (
     <React.Fragment>
@@ -20,7 +12,7 @@ const Modal = ({
         data-toggle="modal"
         data-target={target}
       >
-        {btn}
+        {btnCover}
       </button>
       <div
         className="modal fade"
@@ -33,9 +25,9 @@ const Modal = ({
         <div className="modal-dialog modal-dialog-centered" role="document">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalCenterTitle">
+              <h2 className="modal-title" id="exampleModalCenterTitle">
                 {title}
-              </h5>
+              </h2>
               <button
                 type="button"
                 className="close"

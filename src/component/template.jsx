@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import TemplateNav from "./templateNav";
 import AddNewTemplate from "./addNewTemplate";
+import ViewTemplates from "./viewTemplates";
 import { Route } from "react-router-dom";
 
 class Template extends Component {
   state = {
     todoItems: [],
-    templates: []
+    templates: [],
+    templateTitle: "Template Name"
   };
 
   handleTodoSubmit = exercise => {
@@ -20,13 +22,16 @@ class Template extends Component {
   };
 
   handleTemplateSubmit = template => {
+    const title = this.state.templateTitle;
+    const newTemplate = { template, title };
     if (this.state.templates.length === 0)
-      this.setState({ templates: [template], todoItems: [] });
+      this.setState({ templates: [newTemplate] });
     else {
       const templates = [...this.state.templates];
-      templates.push(template);
-      this.setState({ templates, todoItems: [] });
+      templates.push(newTemplate);
+      this.setState({ templates });
     }
+    this.setState({ todoItems: [], templateTitle: "Template Name" });
   };
 
   handleDelete = exercise => {
@@ -54,13 +59,17 @@ class Template extends Component {
     this.setState({ todoItems });
   };
 
+  handleTitleChange = newTitle => {
+    this.setState({ templateTitle: newTitle });
+  };
+
   componentDidUpdate() {
     console.log("TodoItems    ", this.state.todoItems);
     console.log("Templates    ", this.state.templates);
   }
 
   render() {
-    const { todoItems } = this.state;
+    const { todoItems, templateTitle, templates } = this.state;
     return (
       <div id="template">
         <Route path="/todolist/template" exact component={TemplateNav} />
@@ -69,14 +78,20 @@ class Template extends Component {
           render={props => (
             <AddNewTemplate
               todoItems={todoItems}
+              templateTitle={templateTitle}
               onTodoSubmit={this.handleTodoSubmit}
               onTemplateSubmit={this.handleTemplateSubmit}
+              onTitleChange={this.handleTitleChange}
               onShiftUp={this.handleShiftUp}
               onShiftDown={this.handleShiftDown}
               onDelete={this.handleDelete}
               {...props}
             />
           )}
+        />
+        <Route
+          path="/todolist/template/view"
+          render={props => <ViewTemplates templates={templates} {...props} />}
         />
       </div>
     );

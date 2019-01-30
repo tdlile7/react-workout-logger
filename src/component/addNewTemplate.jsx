@@ -9,10 +9,12 @@ class AddNewTemplate extends Component {
     const {
       onTodoSubmit,
       onTemplateSubmit,
+      onTitleChange,
       onShiftUp,
       onShiftDown,
       onDelete,
-      todoItems
+      todoItems,
+      templateTitle
     } = this.props;
     return (
       <React.Fragment>
@@ -22,7 +24,9 @@ class AddNewTemplate extends Component {
         </div>
         <CustomTemplate
           todoItems={todoItems}
+          templateTitle={templateTitle}
           onTemplateSubmit={onTemplateSubmit}
+          onTitleChange={onTitleChange}
           onShiftUp={onShiftUp}
           onShiftDown={onShiftDown}
           onDelete={onDelete}

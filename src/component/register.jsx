@@ -13,7 +13,7 @@ class Register extends Component {
     );
     return (
       <React.Fragment>
-        <Modal title="Register" body={body} />
+        <Modal title="Register" body={body} btnCover="Register" />
       </React.Fragment>
     );
   }

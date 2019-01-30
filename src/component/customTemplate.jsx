@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ExerciseList from "./exerciseList";
+import EditTemplateTitle from "./editTemplateTitle";
+import Modal from "./common/modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
@@ -7,20 +9,28 @@ class CustomTemplate extends Component {
   render() {
     const {
       onTemplateSubmit,
+      onTitleChange,
       onDelete,
       todoItems,
+      templateTitle,
       onShiftUp,
       onShiftDown
     } = this.props;
+
+    let submitBtnClasses = "btn btn-primary ";
+    if (todoItems.length === 0) submitBtnClasses += "disabled";
 
     return (
       <div id="custom-template">
         <div id="exercise-list-container">
           <h2>
-            Template Name
-            <button type="button" class="btn btn-dark">
-              <FontAwesomeIcon icon={faEdit} />
-            </button>
+            {templateTitle}
+            <Modal
+              title="Edit"
+              body={<EditTemplateTitle onTitleChange={onTitleChange} />}
+              btnClasses="btn btn-dark"
+              btnCover={<FontAwesomeIcon icon={faEdit} />}
+            />
           </h2>
           <ExerciseList
             todoItems={todoItems}
@@ -32,7 +42,7 @@ class CustomTemplate extends Component {
         <div id="submit-template-form-btn">
           <button
             type="button"
-            class="btn btn-outline-primary"
+            class={submitBtnClasses}
             onClick={() => onTemplateSubmit(todoItems)}
           >
             Submit

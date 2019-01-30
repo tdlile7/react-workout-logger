@@ -29,7 +29,7 @@ class Exercise extends Component {
             title="Example"
             body={<ExerciseForm />}
             btnClasses="btn btn-dark btn-sm"
-            btnTitle={<FontAwesomeIcon icon={faEdit} />}
+            btnCover={<FontAwesomeIcon icon={faEdit} />}
           />
           <button
             type="button"

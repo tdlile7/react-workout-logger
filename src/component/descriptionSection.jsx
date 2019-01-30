@@ -11,7 +11,7 @@ const DescriptionSection = () => {
     <div id="description-section" className="jumbotron">
       <div>
         <FontAwesomeIcon icon={faHeartbeat} />
-        <p>Exercise is powerful at maintaing a healthy lifestyle</p>
+        <p>Exercise is essential for maintaing a healthy lifestyle</p>
       </div>
       <div>
         <FontAwesomeIcon icon={faPencilAlt} />
@@ -19,7 +19,7 @@ const DescriptionSection = () => {
       </div>
       <div>
         <FontAwesomeIcon icon={faDumbbell} />
-        <p>Easily record your weights and track your progression</p>
+        <p>Easily record your weights and track your progress</p>
       </div>
     </div>
   );
