@@ -8,6 +8,7 @@ class AddNewTemplate extends Component {
   render() {
     const {
       onTodoSubmit,
+      onTemplateSubmit,
       onShiftUp,
       onShiftDown,
       onDelete,
@@ -21,6 +22,7 @@ class AddNewTemplate extends Component {
         </div>
         <CustomTemplate
           todoItems={todoItems}
+          onTemplateSubmit={onTemplateSubmit}
           onShiftUp={onShiftUp}
           onShiftDown={onShiftDown}
           onDelete={onDelete}

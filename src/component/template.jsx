@@ -5,16 +5,27 @@ import { Route } from "react-router-dom";
 
 class Template extends Component {
   state = {
-    todoItems: []
+    todoItems: [],
+    templates: []
   };
 
   handleTodoSubmit = exercise => {
     if (this.state.todoItems.length === 0)
       this.setState({ todoItems: [exercise] });
     else {
-      let todoItems = [...this.state.todoItems];
+      const todoItems = [...this.state.todoItems];
       todoItems.push(exercise);
       this.setState({ todoItems });
+    }
+  };
+
+  handleTemplateSubmit = template => {
+    if (this.state.templates.length === 0)
+      this.setState({ templates: [template], todoItems: [] });
+    else {
+      const templates = [...this.state.templates];
+      templates.push(template);
+      this.setState({ templates, todoItems: [] });
     }
   };
 
@@ -44,7 +55,8 @@ class Template extends Component {
   };
 
   componentDidUpdate() {
-    console.log(this.state.todoItems);
+    console.log("TodoItems    ", this.state.todoItems);
+    console.log("Templates    ", this.state.templates);
   }
 
   render() {
@@ -58,6 +70,7 @@ class Template extends Component {
             <AddNewTemplate
               todoItems={todoItems}
               onTodoSubmit={this.handleTodoSubmit}
+              onTemplateSubmit={this.handleTemplateSubmit}
               onShiftUp={this.handleShiftUp}
               onShiftDown={this.handleShiftDown}
               onDelete={this.handleDelete}
