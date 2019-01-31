@@ -25,10 +25,11 @@ class EditTemplateTitle extends Form {
   };
 
   render() {
+    const modalTarget = `#${this.props.modalTitle}`;
     return (
       <form id="template-title-edit-form" onSubmit={this.handleSubmit}>
         {this.renderInput("title", "Title")}
-        {this.renderButton("Save")}
+        {this.renderButton("Save", "modal", modalTarget)}
       </form>
     );
   }

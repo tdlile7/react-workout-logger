@@ -25,6 +25,35 @@
       button:focus {
         box-shadow: none;
       }
+
+      #template-title-edit-form {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: 100%;
+
+        .form-group {
+          margin: 0;
+          width: 60%;
+        }
+
+        label {
+          display: none;
+        }
+
+        .btn {
+          padding: 2.5px;
+          font-size: 1.25rem;
+          height: 50%;
+          width: 17.5%;
+        }
+      }
+
+      .modal-footer {
+        .btn {
+          width: 15%;
+        }
+      }
     }
 
     #exercise-list {

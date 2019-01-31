@@ -19,12 +19,12 @@ class ExerciseForm extends Form {
       .label("Name"),
     reps: Joi.number()
       .required()
-      .min(0)
+      .min(1)
       .max(30)
       .label("Reps"),
     sets: Joi.number()
       .required()
-      .min(0)
+      .min(1)
       .max(20)
       .label("Sets")
   };
@@ -56,8 +56,8 @@ class ExerciseForm extends Form {
         </h2>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput("name", "Name", "text")}
-          {this.renderInput("reps", "Reps", "number")}
-          {this.renderInput("sets", "Sets", "number")}
+          {this.renderInput("reps", "Reps", "number", 1, 30)}
+          {this.renderInput("sets", "Sets", "number", 1, 20)}
           {this.renderButton("Save")}
         </form>
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "./common/modal";
-import ExerciseForm from "./exerciseForm";
+import EditExercise from "./editExercise";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashAlt,
@@ -13,6 +13,7 @@ class Exercise extends Component {
   render() {
     const {
       exercise,
+      onTodoEdit,
       onShiftUp,
       onShiftDown,
       onDelete,
@@ -20,14 +21,23 @@ class Exercise extends Component {
       length
     } = this.props;
     const { name, reps, sets } = exercise;
-
+    const title = `Exercise${index + 1}`;
     return (
       <li id="exercise">
         <p>{`${name}: ${reps} reps for ${sets} sets`}</p>
         <div id="exercise-btn">
           <Modal
-            title="Example"
-            body={<ExerciseForm />}
+            title={title}
+            body={
+              <EditExercise
+                name={name}
+                reps={reps}
+                sets={sets}
+                index={index}
+                modalTitle={title}
+                onTodoEdit={onTodoEdit}
+              />
+            }
             btnClasses="btn btn-dark btn-sm"
             btnCover={<FontAwesomeIcon icon={faEdit} />}
           />

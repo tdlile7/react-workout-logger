@@ -9,7 +9,7 @@ class Landing extends Component {
     return (
       <React.Fragment>
         <div id="landing-headline" className="jumbotron">
-          <h1>Workout Exercise Planner</h1>
+          <h1>Workout Exercise Logger</h1>
         </div>
         <div id="sign-in">
           <div id="landing-background" />

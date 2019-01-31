@@ -21,6 +21,13 @@ class Template extends Component {
     }
   };
 
+  handleTodoEdit = (exercise, index) => {
+    const todoItems = [...this.state.todoItems];
+    const id = todoItems[index].id;
+    todoItems[index] = { id, ...exercise };
+    this.setState({ todoItems });
+  };
+
   handleTemplateSubmit = template => {
     const title = this.state.templateTitle;
     const newTemplate = { template, title };
@@ -80,6 +87,7 @@ class Template extends Component {
               todoItems={todoItems}
               templateTitle={templateTitle}
               onTodoSubmit={this.handleTodoSubmit}
+              onTodoEdit={this.handleTodoEdit}
               onTemplateSubmit={this.handleTemplateSubmit}
               onTitleChange={this.handleTitleChange}
               onShiftUp={this.handleShiftUp}

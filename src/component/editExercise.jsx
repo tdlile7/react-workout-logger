@@ -2,12 +2,12 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 
-class ExerciseForm extends Form {
+class EditExercise extends Form {
   state = {
     data: {
-      name: "",
-      reps: "",
-      sets: ""
+      name: this.props.name,
+      reps: this.props.reps,
+      sets: this.props.sets
     },
     errors: {}
   };
@@ -29,25 +29,21 @@ class ExerciseForm extends Form {
   };
 
   doSubmit = () => {
-    const { onTodoSubmit } = this.props;
-    console.log(this.state.data);
-    onTodoSubmit(this.state.data);
+    const { onTodoEdit } = this.props;
+    onTodoEdit(this.state.data, this.props.index);
   };
 
   render() {
-    if (this.props.edit) {
-      console.log("Edit is true");
-    }
-
+    const modalTarget = `#${this.props.modalTitle}`;
     return (
       <form onSubmit={this.handleSubmit}>
         {this.renderInput("name", "Name", "text")}
-        {this.renderInput("reps", "Reps", "number")}
-        {this.renderInput("sets", "Sets", "number")}
-        {this.renderButton("Save")}
+        {this.renderInput("reps", "Reps", "number", 1, 30)}
+        {this.renderInput("sets", "Sets", "number", 1, 20)}
+        {this.renderButton("Save", "modal", modalTarget)}
       </form>
     );
   }
 }
 
-export default ExerciseForm;
+export default EditExercise;

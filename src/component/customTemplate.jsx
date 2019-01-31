@@ -9,6 +9,7 @@ class CustomTemplate extends Component {
   render() {
     const {
       onTemplateSubmit,
+      onTodoEdit,
       onTitleChange,
       onDelete,
       todoItems,
@@ -26,14 +27,20 @@ class CustomTemplate extends Component {
           <h2>
             {templateTitle}
             <Modal
-              title="Edit"
-              body={<EditTemplateTitle onTitleChange={onTitleChange} />}
+              title="Edit_Title"
+              body={
+                <EditTemplateTitle
+                  modalTitle="Edit_Title"
+                  onTitleChange={onTitleChange}
+                />
+              }
               btnClasses="btn btn-dark"
               btnCover={<FontAwesomeIcon icon={faEdit} />}
             />
           </h2>
           <ExerciseList
             todoItems={todoItems}
+            onTodoEdit={onTodoEdit}
             onShiftUp={onShiftUp}
             onShiftDown={onShiftDown}
             onDelete={onDelete}

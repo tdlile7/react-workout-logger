@@ -8,6 +8,7 @@ class AddNewTemplate extends Component {
   render() {
     const {
       onTodoSubmit,
+      onTodoEdit,
       onTemplateSubmit,
       onTitleChange,
       onShiftUp,
@@ -25,6 +26,7 @@ class AddNewTemplate extends Component {
         <CustomTemplate
           todoItems={todoItems}
           templateTitle={templateTitle}
+          onTodoEdit={onTodoEdit}
           onTemplateSubmit={onTemplateSubmit}
           onTitleChange={onTitleChange}
           onShiftUp={onShiftUp}

@@ -47,9 +47,14 @@ class Form extends Component {
     this.setState({ data, errors });
   };
 
-  renderButton(label) {
+  renderButton(label, dataToggle, dataTarget) {
     return (
-      <button disabled={this.validate()} className="btn btn-primary">
+      <button
+        disabled={this.validate()}
+        className="btn btn-primary"
+        data-toggle={dataToggle}
+        data-target={dataTarget}
+      >
         {label}
       </button>
     );
@@ -70,7 +75,7 @@ class Form extends Component {
     );
   }
 
-  renderInput(name, label, type = "text") {
+  renderInput(name, label, type = "text", min, max) {
     const { data, errors } = this.state;
 
     return (
@@ -81,6 +86,8 @@ class Form extends Component {
         label={label}
         onChange={this.handleChange}
         error={errors[name]}
+        min={min}
+        max={max}
       />
     );
   }
