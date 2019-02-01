@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 
 class ViewTemplates extends Component {
-  componentDidMount() {
-    console.log("Templates   ", this.props.templates);
-  }
-
   render() {
     const { templates } = this.props;
     return (
-      <div>
-        <h1>Viewing all the templates!</h1>
+      <div id="templates-container">
+        {templates.length === 0 && <h1>No templates have been saved</h1>}
         {templates.map(workout => {
-          return <p>{workout.title}</p>;
+          return (
+            <div className="row">
+              <h2>{workout.title}</h2>
+            </div>
+          );
         })}
       </div>
     );
