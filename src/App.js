@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import TodoList from "./component/todoList";
+import TodoList from "./component/todolist/todoList";
 import NavBar from "./component/common/navBar";
-import Landing from "./component/landing";
+import Landing from "./component/landing/landing";
 import { Switch, Route } from "react-router-dom";
 import "./assets/stylesheets/app.scss";
 

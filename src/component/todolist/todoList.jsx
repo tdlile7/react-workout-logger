@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Log from "./log";
-import Template from "./template";
+import Log from "./logger/log";
+import Template from "./template/template";
 import SubNav from "./subNav";
-import Intro from "./intro";
+import Intro from "./intro/intro";
 import { Route } from "react-router-dom";
 
 class TodoList extends Component {

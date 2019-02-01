@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TemplateNav from "./templateNav";
-import AddNewTemplate from "./addNewTemplate";
-import ViewTemplates from "./viewTemplates";
+import AddNewTemplate from "./addNewTemplate/addNewTemplate";
+import ViewTemplates from "./viewTemplates/viewTemplates";
 import { Route } from "react-router-dom";
 
 class Template extends Component {
@@ -71,8 +71,7 @@ class Template extends Component {
   };
 
   componentDidUpdate() {
-    console.log("TodoItems    ", this.state.todoItems);
-    console.log("Templates    ", this.state.templates);
+    console.log(this.state.templates);
   }
 
   render() {

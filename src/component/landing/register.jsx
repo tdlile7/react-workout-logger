@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Modal from "./common/modal";
+import Modal from "../common/modal";
 
 class Register extends Component {
   render() {
