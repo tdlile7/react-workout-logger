@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Log from "./logger/log";
+import Logger from "./logger/logger";
 import Template from "./template/template";
 import SubNav from "./subNav";
 import Intro from "./intro/intro";
@@ -13,7 +13,7 @@ class TodoList extends Component {
         <div id="section">
           <div id="section-background" />
           <Route path="/todolist/intro" component={Intro} />
-          <Route path="/todolist/logs" component={Log} />
+          <Route path="/todolist/logger" component={Logger} />
           <Route path="/todolist/template" component={Template} />
         </div>
       </React.Fragment>

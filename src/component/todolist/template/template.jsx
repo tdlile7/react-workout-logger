@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TemplateNav from "./templateNav";
+import ContentNav from "../../common/contentNav";
 import AddNewTemplate from "./addNewTemplate/addNewTemplate";
 import ViewTemplates from "./viewTemplates/viewTemplates";
 import { Route } from "react-router-dom";
@@ -78,7 +78,13 @@ class Template extends Component {
     const { todoItems, templateTitle, templates } = this.state;
     return (
       <div id="template">
-        <Route path="/todolist/template" exact component={TemplateNav} />
+        <Route
+          path="/todolist/template"
+          exact
+          render={props => (
+            <ContentNav path="template" component={"Templates"} {...props} />
+          )}
+        />
         <Route
           path="/todolist/template/new"
           render={props => (

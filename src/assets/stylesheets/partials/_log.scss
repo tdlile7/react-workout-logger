@@ -1,0 +1,15 @@
+#logger {
+  height: 80vh;
+  width: 90vw;
+  display: flex;
+
+  #log-filter {
+    height: 100%;
+    width: 30%;
+  }
+
+  #log-form {
+    height: 100%;
+    width: 70%;
+  }
+}
