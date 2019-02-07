@@ -5,6 +5,7 @@ import AddNewLog from "./addNewLog/addNewLog";
 
 class Logger extends Component {
   render() {
+    const { templates } = this.props;
     return (
       <div id="logger">
         <Route
@@ -16,7 +17,7 @@ class Logger extends Component {
         />
         <Route
           path="/todolist/logger/new"
-          render={props => <AddNewLog {...props} />}
+          render={props => <AddNewLog templates={templates} {...props} />}
         />
       </div>
     );
