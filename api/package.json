@@ -1,14 +1,29 @@
 {
-  "name": "api",
+  "name": "react-workout-logger-api",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js",
+    "test": "jest --watchAll --verbose",
+    "seed": "node seed.js"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
+    "bcrypt": "^3.0.4",
+    "config": "^1.29.4",
+    "cors": "^2.8.4",
     "express": "~4.16.0",
-    "morgan": "~1.9.0"
+    "express-async-errors": "^2.1.0",
+    "joi": "^13.4.0",
+    "joi-objectid": "^2.0.0",
+    "jsonwebtoken": "^8.1.1",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.4.17",
+    "winston": "^2.4.4",
+    "winston-mongodb": "^3.0.2"
+  },
+  "devDependencies": {
+    "debug": "^2.6.9",
+    "jest": "^24.1.0",
+    "supertest": "^3.0.0"
   }
 }
