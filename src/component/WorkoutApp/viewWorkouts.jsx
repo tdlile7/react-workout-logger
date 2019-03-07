@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-class ViewTemplates extends Component {
+class ViewWorkouts extends Component {
   render() {
-    const { templates } = this.props;
+    const { workouts } = this.props;
     return (
       <div id="templates-container">
-        {templates.length === 0 && <h1>No templates have been saved</h1>}
-        {templates.map(workout => {
+        {workouts.length === 0 && <h1>No workouts have been saved</h1>}
+        {workouts.map(workout => {
           return (
             <div className="row">
               <h2>{workout.title}</h2>
@@ -18,4 +18,4 @@ class ViewTemplates extends Component {
   }
 }
 
-export default ViewTemplates;
+export default ViewWorkouts;

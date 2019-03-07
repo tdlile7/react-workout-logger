@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
-class PreviewTemplateSubmitBtn extends Component {
+class WorkoutSubmitBtn extends Component {
   handleSubmit = e => {
     e.preventDefault();
-    const { onTemplateSubmit, todoItems } = this.props;
-    onTemplateSubmit(todoItems);
+    const { onWorkoutSubmit, exercises } = this.props;
+    onWorkoutSubmit(exercises);
   };
 
   render() {
-    const { todoItems } = this.props;
+    const { exercises } = this.props;
     let submitBtnClasses = "btn btn-primary ";
-    if (todoItems.length === 0) submitBtnClasses += "disabled";
+    if (exercises.length === 0) submitBtnClasses += "disabled";
 
     return (
       <div id="submit-template-form-btn">
@@ -26,4 +26,4 @@ class PreviewTemplateSubmitBtn extends Component {
   }
 }
 
-export default PreviewTemplateSubmitBtn;
+export default WorkoutSubmitBtn;

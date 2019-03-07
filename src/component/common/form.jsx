@@ -9,7 +9,6 @@ class Form extends Component {
     errors: {}
   };
 
-  //   Validates inputs to ensure that requirements specified in the input schema are meant
   validate = () => {
     const options = { abortEarly: false };
     const { error } = Joi.validate(this.state.data, this.schema, options);

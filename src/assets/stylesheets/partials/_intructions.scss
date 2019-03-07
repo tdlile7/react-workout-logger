@@ -1,17 +1,17 @@
-%intro-display-setting {
+%instructions-display-setting {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#intro {
-  @extend %intro-display-setting;
+#instructions {
+  @extend %instructions-display-setting;
   height: 100%;
   width: 100%;
 }
 
-#intro p {
-  @extend %intro-display-setting;
+#instructions p {
+  @extend %instructions-display-setting;
   text-align: center;
   width: 80%;
   height: 80%;

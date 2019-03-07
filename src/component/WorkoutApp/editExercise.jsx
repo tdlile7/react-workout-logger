@@ -1,6 +1,6 @@
 import React from "react";
 import Joi from "joi-browser";
-import Form from "../../../common/form";
+import Form from "../common/form";
 
 class EditExercise extends Form {
   state = {
@@ -29,8 +29,8 @@ class EditExercise extends Form {
   };
 
   doSubmit = () => {
-    const { onTodoEdit } = this.props;
-    onTodoEdit(this.state.data, this.props.index);
+    const { onExerciseEdit } = this.props;
+    onExerciseEdit(this.state.data, this.props.index);
   };
 
   render() {

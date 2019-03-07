@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import PreviewTemplate from "./previewTemplate";
+import PreviewWorkout from "./previewWorkout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons";
 import ExerciseForm from "./exerciseForm";
 
-class AddNewTemplate extends Component {
+class AddNewWorkout extends Component {
   render() {
     const {
-      todoItems,
-      templateTitle,
-      onTodoSubmit,
-      onTodoEdit,
-      onTemplateSubmit,
+      exercises,
+      workoutTitle,
+      onExerciseSubmit,
+      onExerciseEdit,
+      onWorkoutSubmit,
       onTitleChange,
       onShiftUp,
       onShiftDown,
@@ -20,15 +20,15 @@ class AddNewTemplate extends Component {
 
     return (
       <React.Fragment>
-        <ExerciseForm onTodoSubmit={onTodoSubmit} />
+        <ExerciseForm onExerciseSubmit={onExerciseSubmit} />
         <div id="transfer-arrow">
           <FontAwesomeIcon icon={faLongArrowAltRight} />
         </div>
-        <PreviewTemplate
-          todoItems={todoItems}
-          templateTitle={templateTitle}
-          onTodoEdit={onTodoEdit}
-          onTemplateSubmit={onTemplateSubmit}
+        <PreviewWorkout
+          exercises={exercises}
+          workoutTitle={workoutTitle}
+          onExerciseEdit={onExerciseEdit}
+          onWorkoutSubmit={onWorkoutSubmit}
           onTitleChange={onTitleChange}
           onShiftUp={onShiftUp}
           onShiftDown={onShiftDown}
@@ -39,4 +39,4 @@ class AddNewTemplate extends Component {
   }
 }
 
-export default AddNewTemplate;
+export default AddNewWorkout;

@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import ExerciseList from "./exerciseList";
-import PreviewTemplateTitle from "./previewTemplateTitle";
-import PreivewTemplateSubmitBtn from "./previewTemplateSubmitBtn";
+import WorkoutTitle from "./workoutTitle";
+import WorkoutSubmitBtn from "./workoutSubmitBtn";
 
-class PreviewTemplate extends Component {
+class PreviewWorkout extends Component {
   render() {
     const {
-      todoItems,
-      templateTitle,
-      onTemplateSubmit,
-      onTodoEdit,
+      exercises,
+      workoutTitle,
+      onWorkoutSubmit,
+      onExerciseEdit,
       onTitleChange,
       onShiftUp,
       onShiftDown,
@@ -19,25 +19,25 @@ class PreviewTemplate extends Component {
     return (
       <div id="custom-template">
         <div id="exercise-list-container">
-          <PreviewTemplateTitle
-            templateTitle={templateTitle}
+          <WorkoutTitle
+            workoutTitle={workoutTitle}
             onTitleChange={onTitleChange}
           />
           <ExerciseList
-            todoItems={todoItems}
-            onTodoEdit={onTodoEdit}
+            exercises={exercises}
+            onExerciseEdit={onExerciseEdit}
             onShiftUp={onShiftUp}
             onShiftDown={onShiftDown}
             onDelete={onDelete}
           />
         </div>
-        <PreivewTemplateSubmitBtn
-          onTemplateSubmit={onTemplateSubmit}
-          todoItems={todoItems}
+        <WorkoutSubmitBtn
+          onWorkoutSubmit={onWorkoutSubmit}
+          exercises={exercises}
         />
       </div>
     );
   }
 }
 
-export default PreviewTemplate;
+export default PreviewWorkout;

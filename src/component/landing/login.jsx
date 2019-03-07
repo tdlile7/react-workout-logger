@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 class Login extends Component {
   render() {
     let body = (
-      <Link to="/todolist">
+      <Link to="/workout-app">
         <button
           className="btn btn-primary btn-lg"
           data-toggle="modal"

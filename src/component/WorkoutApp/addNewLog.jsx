@@ -2,13 +2,13 @@ import React, { Component } from "react";
 
 class AddNewLog extends Component {
   render() {
-    const { templates } = this.props;
+    const { workouts } = this.props;
     return (
       <React.Fragment>
         <div id="log-filter">
           <ul className="list-group">
-            {templates.map(template => {
-              return <li class="list-group-item">{template.title}</li>;
+            {workouts.map(workout => {
+              return <li class="list-group-item">{workout.title}</li>;
             })}
           </ul>
         </div>

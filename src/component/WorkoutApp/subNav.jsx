@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 const SubNav = () => {
   return (
     <div id="sub-nav">
-      <NavLink to="/todolist/intro">
+      <NavLink to="/workout-app/instructions">
         <button className="nav-btn">Get Started</button>
       </NavLink>
-      <NavLink to="/todolist/template">
+      <NavLink to="/workout-app/workouts">
         <button className="nav-btn">Template</button>
       </NavLink>
-      <NavLink to="/todolist/logger">
+      <NavLink to="/workout-app/logs">
         <button className="nav-btn">Logs</button>
       </NavLink>
     </div>

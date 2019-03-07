@@ -1,17 +1,17 @@
 import React from "react";
-import EditTemplateTitle from "./editTemplateTitle";
-import Modal from "../../../common/modal";
+import EditWorkoutTitle from "./editWorkoutTitle";
+import Modal from "../common/modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
-const PreviewTemplateTitle = ({ templateTitle, onTitleChange }) => {
+const WorkoutTitle = ({ workoutTitle, onTitleChange }) => {
   return (
     <h2>
-      {templateTitle}
+      {workoutTitle}
       <Modal
         title="Edit_Title"
         body={
-          <EditTemplateTitle
+          <EditWorkoutTitle
             modalTitle="Edit_Title"
             onTitleChange={onTitleChange}
           />
@@ -23,4 +23,4 @@ const PreviewTemplateTitle = ({ templateTitle, onTitleChange }) => {
   );
 };
 
-export default PreviewTemplateTitle;
+export default WorkoutTitle;

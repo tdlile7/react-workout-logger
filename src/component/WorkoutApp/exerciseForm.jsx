@@ -1,6 +1,6 @@
 import React from "react";
 import Joi from "joi-browser";
-import Form from "../../../common/form";
+import Form from "../common/form";
 
 class ExerciseForm extends Form {
   state = {
@@ -30,12 +30,12 @@ class ExerciseForm extends Form {
   };
 
   doSubmit = () => {
-    const { onTodoSubmit } = this.props;
-    const todo = {
+    const { onExerciseSubmit } = this.props;
+    const exercise = {
       id: this.state.idCounter,
       ...this.state.data
     };
-    onTodoSubmit(todo);
+    onExerciseSubmit(exercise);
 
     //Reset input values
     const data = { ...this.state.data };

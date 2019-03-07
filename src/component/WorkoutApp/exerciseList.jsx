@@ -4,19 +4,19 @@ import Exercise from "./exercise";
 class ExerciseList extends Component {
   render() {
     const {
-      todoItems,
-      onTodoEdit,
+      exercises,
+      onExerciseEdit,
       onShiftUp,
       onShiftDown,
       onDelete
     } = this.props;
     return (
       <ul id="exercise-list">
-        {todoItems.map((exercise, i, arr) => {
+        {exercises.map((exercise, i, arr) => {
           return (
             <Exercise
               exercise={exercise}
-              onTodoEdit={onTodoEdit}
+              onExerciseEdit={onExerciseEdit}
               onShiftUp={onShiftUp}
               onShiftDown={onShiftDown}
               onDelete={onDelete}

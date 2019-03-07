@@ -6,10 +6,10 @@ class ContentNav extends Component {
     const { path, component } = this.props;
     return (
       <div id="template-nav">
-        <NavLink to={`/todolist/${path}/new`}>
+        <NavLink to={`/workout-app/${path}/new`}>
           <button className="template-nav-btn">Add New</button>
         </NavLink>
-        <NavLink to={`/todolist/${path}/view`}>
+        <NavLink to={`/workout-app/${path}/all`}>
           <button className="template-nav-btn">View {component}</button>
         </NavLink>
       </div>
