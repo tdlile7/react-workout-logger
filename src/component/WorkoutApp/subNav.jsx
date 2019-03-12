@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const SubNav = () => {
   return (
     <div id="sub-nav">
-      <NavLink to="/workout-app/instructions">
+      <NavLink to="/workout-app/instructions" activeClassName="active">
         <button className="nav-btn">Get Started</button>
       </NavLink>
       <NavLink to="/workout-app/workouts">

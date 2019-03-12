@@ -1,19 +1,12 @@
 import React, { Component } from "react";
+import RegisterForm from "./registerForm";
 import Modal from "../common/modal";
 
 class Register extends Component {
   render() {
-    let body = (
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
-        sequi aliquam. Aperiam quasi doloribus modi accusamus mollitia quidem
-        eaque, minus distinctio cupiditate repellendus obcaecati illum soluta,
-        illo iure laborum nemo.
-      </p>
-    );
     return (
       <React.Fragment>
-        <Modal title="Register" body={body} btnCover="Register" />
+        <Modal title="Register" body={<RegisterForm />} btnCover="Register" />
       </React.Fragment>
     );
   }
