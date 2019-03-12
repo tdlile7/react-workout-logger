@@ -11,6 +11,8 @@ class Form extends Component {
 
   validate = () => {
     const options = { abortEarly: false };
+    console.log(Joi.validate(this.state.data, this.schema, options));
+
     const { error } = Joi.validate(this.state.data, this.schema, options);
     if (!error) return null;
 
@@ -42,7 +44,6 @@ class Form extends Component {
 
     const data = { ...this.state.data };
     data[input.name] = input.value;
-
     this.setState({ data, errors });
   };
 
@@ -74,13 +75,14 @@ class Form extends Component {
     );
   }
 
-  renderInput(name, label, type = "text", min, max) {
+  renderInput(title, name, label, type = "text", min, max) {
     const { data, errors } = this.state;
 
     return (
       <Input
         type={type}
         name={name}
+        formTitle={title}
         value={data[name]}
         label={label}
         onChange={this.handleChange}

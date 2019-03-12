@@ -25,7 +25,7 @@ class LoginForm extends Form {
       await auth.login(data.username, data.password);
 
       const { state } = this.props.location;
-      window.location = state ? state.from.pathname : "/";
+      window.location = state ? state.from.pathname : "/workout-app";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -36,14 +36,14 @@ class LoginForm extends Form {
   };
 
   render() {
-    if (auth.getCurrentUser()) return <Redirect to="/" />;
+    if (auth.getCurrentUser()) return <Redirect to="/workout-app" />;
+    const title = this.props.title;
 
     return (
       <div>
-        <h1>Login</h1>
         <form onSubmit={this.handleSubmit}>
-          {this.renderInput("username", "Username")}
-          {this.renderInput("password", "Password", "password")}
+          {this.renderInput(title, "username", "Username")}
+          {this.renderInput(title, "password", "Password", "password")}
           {this.renderButton("Login")}
         </form>
       </div>
