@@ -5,12 +5,12 @@ class ContentNav extends Component {
   render() {
     const { path, component } = this.props;
     return (
-      <div id="template-nav">
+      <div id="content-nav">
         <NavLink to={`/workout-app/${path}/new`}>
-          <button className="template-nav-btn">Add New</button>
+          <button className="content-nav-btn">Add New</button>
         </NavLink>
         <NavLink to={`/workout-app/${path}/all`}>
-          <button className="template-nav-btn">View {component}</button>
+          <button className="content-nav-btn">View {component}</button>
         </NavLink>
       </div>
     );

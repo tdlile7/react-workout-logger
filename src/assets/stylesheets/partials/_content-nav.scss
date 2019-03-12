@@ -1,10 +1,11 @@
-#template-nav {
+#content-nav {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100%;
   margin: 5vh 0 0 0;
+  overflow: hidden;
 
   > a {
     height: 30vh;
@@ -12,7 +13,7 @@
     margin: 2.5vh 0;
   }
 
-  .template-nav-btn {
+  .content-nav-btn {
     height: 100%;
     width: 100%;
     cursor: pointer;
@@ -22,35 +23,36 @@
     border-radius: 90px;
   }
 
-  .template-nav-btn:hover {
+  .content-nav-btn:hover {
     background: rgb(202, 201, 201);
     cursor: pointer;
   }
 
-  .template-nav-btn:focus {
+  .content-nav-btn:focus {
     outline: none;
   }
 }
 
 @media (min-width: 600px) {
-  #template-nav > a {
+  #content-nav > a {
     height: 20vh;
     width: 50vw;
   }
 }
 
 @media (min-width: 768px) {
-  #template-nav > a {
+  #content-nav > a {
     width: 35vw;
   }
 }
 
 @media (min-width: 992px) {
-  #template-nav {
+  #content-nav {
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
     margin: 15vh 0 0 0;
+    max-height: 60vh;
 
     > a {
       width: 25vw;
