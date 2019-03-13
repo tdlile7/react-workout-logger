@@ -3,6 +3,7 @@ import Logger from "./logger";
 import WorkoutTemplate from "./workoutTemplate";
 import SubNav from "./subNav";
 import Instructions from "./instructions";
+import auth from "../../services/authService";
 import { Route } from "react-router-dom";
 
 class WorkoutApp extends Component {
@@ -11,6 +12,12 @@ class WorkoutApp extends Component {
     workouts: [],
     workoutTitle: "Workout Name"
   };
+
+  //If user is not logged in, browser will be redirected to landing page
+  componentDidMount() {
+    const user = auth.getCurrentUser();
+    if (!user) window.location = "/";
+  }
 
   handleExerciseSubmit = exercise => {
     if (this.state.exercises.length === 0)
