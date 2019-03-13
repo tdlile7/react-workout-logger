@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ContentNav from "../common/contentNav";
+import ContentNav from "../shared/contentNav";
 import { Route } from "react-router-dom";
 import AddNewLog from "./addNewLog";
 
