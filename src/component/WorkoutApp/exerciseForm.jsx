@@ -9,7 +9,6 @@ class ExerciseForm extends Form {
       reps: "",
       sets: ""
     },
-    idCounter: 0,
     errors: {}
   };
 
@@ -31,21 +30,14 @@ class ExerciseForm extends Form {
 
   doSubmit = () => {
     const { onExerciseSubmit } = this.props;
-    const exercise = {
-      id: this.state.idCounter,
-      ...this.state.data
-    };
+    const exercise = { ...this.state.data };
     onExerciseSubmit(exercise);
 
     //Reset input values
     const data = { ...this.state.data };
-
-    //Increment exercise index
-    let idCounter = this.state.idCounter + 1;
-
     const keys = Object.keys(data);
     keys.map(key => (data[key] = ""));
-    this.setState({ data, idCounter });
+    this.setState({ data });
   };
 
   render() {

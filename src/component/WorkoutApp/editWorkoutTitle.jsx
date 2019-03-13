@@ -2,7 +2,7 @@ import React from "react";
 import Joi from "joi-browser";
 import Form from "../common/form";
 
-class EditTemplateTitle extends Form {
+class EditWorkoutTitle extends Form {
   state = {
     data: {
       title: ""
@@ -25,14 +25,15 @@ class EditTemplateTitle extends Form {
   };
 
   render() {
+    const title = "Edit Workout Title";
     const modalTarget = `#${this.props.modalTitle}`;
     return (
       <form id="template-title-edit-form" onSubmit={this.handleSubmit}>
-        {this.renderInput("title", "Title")}
+        {this.renderInput(title, "title", "Title")}
         {this.renderButton("Save", "modal", modalTarget)}
       </form>
     );
   }
 }
 
-export default EditTemplateTitle;
+export default EditWorkoutTitle;

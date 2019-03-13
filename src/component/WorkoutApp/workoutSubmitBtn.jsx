@@ -5,7 +5,6 @@ class WorkoutSubmitBtn extends Component {
     e.preventDefault();
     const { onWorkoutSubmit, exercises } = this.props;
     onWorkoutSubmit(exercises);
-    window.location = "/workout-app/workouts";
   };
 
   render() {

@@ -3,6 +3,7 @@ import Logger from "./logger";
 import WorkoutTemplate from "./workoutTemplate";
 import SubNav from "./subNav";
 import Instructions from "./instructions";
+import { getWorkouts, saveWorkout } from "../../services/workoutService";
 import auth from "../../services/authService";
 import { Route } from "react-router-dom";
 
@@ -14,9 +15,13 @@ class WorkoutApp extends Component {
   };
 
   //If user is not logged in, browser will be redirected to landing page
-  componentDidMount() {
+  async componentDidMount() {
     const user = auth.getCurrentUser();
     if (!user) window.location = "/";
+    else {
+      const { data: workouts } = await getWorkouts();
+      this.setState({ workouts });
+    }
   }
 
   handleExerciseSubmit = exercise => {
@@ -36,17 +41,11 @@ class WorkoutApp extends Component {
     this.setState({ exercises });
   };
 
-  handleWorkoutSubmit = workout => {
+  handleWorkoutSubmit = async workout => {
     const title = this.state.workoutTitle;
-    const newWorkout = { workout, title };
-    if (this.state.workouts.length === 0)
-      this.setState({ workouts: [newWorkout] });
-    else {
-      const workouts = [...this.state.workouts];
-      workouts.push(newWorkout);
-      this.setState({ workouts });
-    }
-    this.setState({ exercises: [], workoutTitle: "Workout Title" });
+    const newWorkout = { exercises: workout, title };
+    await saveWorkout(newWorkout);
+    window.location = "/workout-app/workouts";
   };
 
   handleDelete = exercise => {
