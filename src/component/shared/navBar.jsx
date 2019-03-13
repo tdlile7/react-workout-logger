@@ -6,10 +6,10 @@ import Logout from "./logout";
 class NavBarComponent extends Component {
   render() {
     const notLanding = window.location.href !== landingUrl;
-    console.log("Current location:", notLanding);
+
     return (
       <nav class="navbar bg-inverse">
-        <Link to="/">
+        <Link to="/workout-app/instructions">
           <h2>WELog</h2>
         </Link>
         {notLanding && <Logout />}

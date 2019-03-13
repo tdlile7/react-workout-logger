@@ -35,11 +35,13 @@ class EditExercise extends Form {
 
   render() {
     const modalTarget = `#${this.props.modalTitle}`;
+    const title = "Edit Exercise Form";
+
     return (
       <form onSubmit={this.handleSubmit}>
-        {this.renderInput("name", "Name", "text")}
-        {this.renderInput("reps", "Reps", "number", 1, 30)}
-        {this.renderInput("sets", "Sets", "number", 1, 20)}
+        {this.renderInput(title, "name", "Name", "text")}
+        {this.renderInput(title, "reps", "Reps", "number", 1, 30)}
+        {this.renderInput(title, "sets", "Sets", "number", 1, 20)}
         {this.renderButton("Save", "modal", modalTarget)}
       </form>
     );
