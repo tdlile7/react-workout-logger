@@ -13,6 +13,7 @@ class EditWorkoutTitle extends Form {
   schema = {
     title: Joi.string()
       .required()
+      .min(1)
       .label("Title")
   };
 
