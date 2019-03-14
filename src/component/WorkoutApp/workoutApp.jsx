@@ -24,6 +24,11 @@ class WorkoutApp extends Component {
     }
   }
 
+  async componentDidUpdate() {
+    const { data: workouts } = await getWorkouts();
+    this.setState({ workouts });
+  }
+
   handleExerciseSubmit = exercise => {
     if (this.state.exercises.length === 0)
       this.setState({ exercises: [exercise] });
