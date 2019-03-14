@@ -45,7 +45,8 @@ class WorkoutApp extends Component {
     const title = this.state.workoutTitle;
     const newWorkout = { exercises: workout, title };
     await saveWorkout(newWorkout);
-    window.location = "/workout-app/workouts";
+    this.props.history.push("/workout-app/workouts");
+    this.setState({ exercises: [], workoutTitle: "Workout Name" });
   };
 
   handleDelete = exercise => {
