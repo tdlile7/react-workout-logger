@@ -34,7 +34,7 @@ class EditExercise extends Form {
   };
 
   render() {
-    const modalTarget = `#${this.props.modalTitle}`;
+    const modalTarget = `#${this.props.modalTarget}`;
     const title = "Edit Exercise Form";
 
     return (

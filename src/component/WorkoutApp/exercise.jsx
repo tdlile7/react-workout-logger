@@ -21,26 +21,32 @@ class Exercise extends Component {
       length
     } = this.props;
     const { name, reps, sets } = exercise;
-    const title = `Exercise${index + 1}`;
+    const modalId = name.replace(" ", "") + index;
+
     return (
       <li id="exercise">
         <p>{`${name}: ${reps} reps for ${sets} sets`}</p>
+
+        {/* Edit Exercise Button */}
         <div id="exercise-btn">
           <Modal
-            title={title}
-            body={
+            modalId={modalId}
+            modalTitle={name}
+            modalBody={
               <EditExercise
                 name={name}
                 reps={reps}
                 sets={sets}
                 index={index}
-                modalTitle={title}
+                modalTarget={modalId}
                 onExerciseEdit={onExerciseEdit}
               />
             }
-            btnClasses="btn btn-dark btn-sm"
-            btnCover={<FontAwesomeIcon icon={faEdit} />}
+            modalBtnClasses="btn btn-dark btn-sm"
+            modalBtnTitle={<FontAwesomeIcon icon={faEdit} />}
           />
+
+          {/* Delete Exercise Button */}
           <button
             type="button"
             className="btn btn-danger btn-sm"
@@ -48,6 +54,8 @@ class Exercise extends Component {
           >
             <FontAwesomeIcon icon={faTrashAlt} />
           </button>
+
+          {/* If more than one exercise listed, allows exercise to be shift up one on the list */}
           {length > 1 && index !== 0 && (
             <button
               type="button"
@@ -57,6 +65,8 @@ class Exercise extends Component {
               <FontAwesomeIcon icon={faArrowAltCircleUp} />
             </button>
           )}
+
+          {/* If more than one exercise listed, allows exercise to be shift down one on the list */}
           {length > 1 && index !== length - 1 && (
             <button
               type="button"

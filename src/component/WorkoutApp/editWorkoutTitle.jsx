@@ -27,7 +27,7 @@ class EditWorkoutTitle extends Form {
 
   render() {
     const title = "Edit Workout Title";
-    const modalTarget = `#${this.props.modalTitle}`;
+    const modalTarget = `#${this.props.modalTarget}`;
     return (
       <form id="template-title-edit-form" onSubmit={this.handleSubmit}>
         {this.renderInput(title, "title", "Title")}

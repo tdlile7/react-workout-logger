@@ -1,22 +1,28 @@
 import React from "react";
 
-const Modal = ({ title, body, btnClasses = "btn btn-primary", btnCover }) => {
-  const target = `#${title}`;
+const Modal = ({
+  modalId,
+  modalTitle,
+  modalBody,
+  modalBtnTitle,
+  modalBtnClasses = "btn btn-primary"
+}) => {
+  const modalTarget = `#${modalId}`;
 
   return (
     <React.Fragment>
       <button
         button
         type="button"
-        className={btnClasses}
+        className={modalBtnClasses}
         data-toggle="modal"
-        data-target={target}
+        data-target={modalTarget}
       >
-        {btnCover}
+        {modalBtnTitle}
       </button>
       <div
         className="modal fade"
-        id={title}
+        id={modalId}
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalCenterTitle"
@@ -26,7 +32,7 @@ const Modal = ({ title, body, btnClasses = "btn btn-primary", btnCover }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h2 className="modal-title" id="exampleModalCenterTitle">
-                {title}
+                {modalTitle}
               </h2>
               <button
                 type="button"
@@ -37,7 +43,7 @@ const Modal = ({ title, body, btnClasses = "btn btn-primary", btnCover }) => {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div className="modal-body">{body}</div>
+            <div className="modal-body">{modalBody}</div>
             <div className="modal-footer">
               <button
                 type="button"

@@ -9,15 +9,16 @@ const WorkoutTitle = ({ workoutTitle, onTitleChange }) => {
     <h2>
       {workoutTitle}
       <Modal
-        title="Edit_Title"
-        body={
+        modalId="WorkoutTitle"
+        modalTitle="Edit Title"
+        modalBody={
           <EditWorkoutTitle
-            modalTitle="Edit_Title"
+            modalTarget="WorkoutTitle"
             onTitleChange={onTitleChange}
           />
         }
-        btnClasses="btn btn-dark"
-        btnCover={<FontAwesomeIcon icon={faEdit} />}
+        modalBtnTitle={<FontAwesomeIcon icon={faEdit} />}
+        modalBtnClasses="btn btn-dark"
       />
     </h2>
   );

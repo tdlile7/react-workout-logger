@@ -8,9 +8,10 @@ class Register extends Component {
     return (
       <React.Fragment>
         <Modal
-          title={title}
-          body={<RegisterForm title={title} />}
-          btnCover="Register"
+          modalId={title}
+          modalTitle={title}
+          modalBody={<RegisterForm title={title} />}
+          modalBtnTitle="Register"
         />
       </React.Fragment>
     );

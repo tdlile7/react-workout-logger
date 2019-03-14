@@ -8,9 +8,10 @@ class Login extends Component {
     return (
       <React.Fragment>
         <Modal
-          title={title}
-          body={<LoginForm title={title} />}
-          btnCover="Login"
+          modalId={title}
+          modalTitle={title}
+          modalBody={<LoginForm title={title} />}
+          modalBtnTitle="Login"
         />
       </React.Fragment>
     );
