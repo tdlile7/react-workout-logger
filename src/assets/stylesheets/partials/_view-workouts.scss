@@ -1,40 +1,15 @@
-#templates-container {
-  max-height: 80%;
-  width: 90%;
-  margin-top: 5%;
+#workouts-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 80%;
+  width: 90%;
+  margin-top: 5%;
   overflow: auto;
 
-  .row {
-    width: 100%;
+  > button {
     min-height: 10vh;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    border: 3px solid black;
-    border-bottom: none;
-
-    h2 {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
-  .row:last-child {
-    border-bottom: 3px solid black;
-  }
-
-  .row:nth-child(even) {
-    background: rgb(170, 170, 170);
-  }
-
-  .row:nth-child(odd) {
-    background: white;
+    width: 100%;
+    margin: 1px 0;
   }
 }
