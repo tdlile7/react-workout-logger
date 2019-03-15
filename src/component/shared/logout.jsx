@@ -2,14 +2,19 @@ import React, { Component } from "react";
 import auth from "../../services/authService";
 
 class Logout extends Component {
-  logout(e) {
+  handleClick = e => {
     e.preventDefault();
+    this.logout();
+  };
+
+  logout() {
     auth.logout();
+    this.props.showLoader();
     window.location = "/";
   }
 
   render() {
-    return <button onClick={this.logout}>Logout</button>;
+    return <button onClick={this.handleClick}>Logout</button>;
   }
 }
 

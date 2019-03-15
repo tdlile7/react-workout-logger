@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import auth from "../../services/authService";
 import Logout from "./logout";
 
-class NavBarComponent extends Component {
+class NavBar extends Component {
   render() {
-    const user = auth.getCurrentUser();
+    const { user, showLoader } = this.props;
     let greetingsHeader = "";
     if (user) {
       greetingsHeader = `Greetings, ${user.username}`;
@@ -13,13 +12,13 @@ class NavBarComponent extends Component {
 
     return (
       <nav class="navbar bg-inverse">
-        <Link to="/workout-app/instructions">
+        <Link to={!user ? "/" : "/workout-app/instructions"}>
           <h2>WELog</h2>
         </Link>
         {user && (
           <div>
             <h3>{greetingsHeader}</h3>
-            <Logout />
+            <Logout showLoader={showLoader} />
           </div>
         )}
       </nav>
@@ -27,4 +26,4 @@ class NavBarComponent extends Component {
   }
 }
 
-export default NavBarComponent;
+export default NavBar;

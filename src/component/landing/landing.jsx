@@ -6,6 +6,7 @@ import Footer from "./footer";
 
 class Landing extends Component {
   render() {
+    const { showLoader } = this.props;
     return (
       <React.Fragment>
         <div id="landing-headline" className="jumbotron">
@@ -13,8 +14,8 @@ class Landing extends Component {
         </div>
         <div id="sign-in">
           <div id="landing-background" />
-          <Register />
-          <Login />
+          <Register showLoader={showLoader} />
+          <Login showLoader={showLoader} />
         </div>
         <DescriptionSection />
         <Footer />

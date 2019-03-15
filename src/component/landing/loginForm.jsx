@@ -23,6 +23,7 @@ class LoginForm extends Form {
     try {
       const { data } = this.state;
       await auth.login(data.email, data.password);
+      this.props.showLoader();
 
       const { state } = window.location;
       window.location = state
