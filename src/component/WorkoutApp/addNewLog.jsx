@@ -1,18 +1,24 @@
 import React, { Component } from "react";
+import Modal from "../common/modal";
+import LogForm from "./logForm";
 
 class AddNewLog extends Component {
   render() {
     const { workouts } = this.props;
     return (
-      <React.Fragment>
-        <div id="log-filter">
-          <ul className="list-group">
-            {workouts.map(workout => {
-              return <li class="list-group-item">{workout.title}</li>;
-            })}
-          </ul>
-        </div>
-      </React.Fragment>
+      <div className="log-group">
+        {workouts.map(workout => {
+          const modalId = "Log" + workout.title.replace(" ", "");
+          return (
+            <Modal
+              modalId={modalId}
+              modalTitle={workout.title}
+              modalBody={<LogForm />}
+              modalBtnTitle={workout.title}
+            />
+          );
+        })}
+      </div>
     );
   }
 }

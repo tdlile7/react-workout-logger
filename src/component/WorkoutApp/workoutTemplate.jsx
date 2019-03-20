@@ -13,6 +13,7 @@ class WorkoutTemplate extends Component {
       onExerciseSubmit,
       onExerciseEdit,
       onWorkoutSubmit,
+      onWorkoutDelete,
       onDelete,
       onShiftUp,
       onShiftDown,
@@ -46,7 +47,13 @@ class WorkoutTemplate extends Component {
         />
         <Route
           path="/workout-app/workouts/all"
-          render={props => <ViewWorkouts workouts={workouts} {...props} />}
+          render={props => (
+            <ViewWorkouts
+              workouts={workouts}
+              onWorkoutDelete={onWorkoutDelete}
+              {...props}
+            />
+          )}
         />
       </div>
     );

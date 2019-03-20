@@ -3,7 +3,11 @@ import Logger from "./logger";
 import WorkoutTemplate from "./workoutTemplate";
 import SubNav from "./subNav";
 import Instructions from "./instructions";
-import { getWorkouts, saveWorkout } from "../../services/workoutService";
+import {
+  getWorkouts,
+  saveWorkout,
+  deleteWorkout
+} from "../../services/workoutService";
 import auth from "../../services/authService";
 import { Route } from "react-router-dom";
 
@@ -22,11 +26,6 @@ class WorkoutApp extends Component {
       const { data: workouts } = await getWorkouts();
       this.setState({ workouts });
     }
-  }
-
-  async componentDidUpdate() {
-    const { data: workouts } = await getWorkouts();
-    this.setState({ workouts });
   }
 
   handleExerciseSubmit = exercise => {
@@ -50,8 +49,14 @@ class WorkoutApp extends Component {
     const title = this.state.workoutTitle;
     const newWorkout = { exercises: workout, title };
     await saveWorkout(newWorkout);
+    const { data: workouts } = await getWorkouts();
     this.props.history.push("/workout-app/workouts");
-    this.setState({ exercises: [], workoutTitle: "Workout Name" });
+    this.setState({ exercises: [], workouts, workoutTitle: "Workout Name" });
+  };
+
+  handleWorkoutDelete = async workoutId => {
+    await deleteWorkout(workoutId);
+    this.props.history.push("/workout-app/workouts");
   };
 
   handleDelete = exercise => {
@@ -105,6 +110,7 @@ class WorkoutApp extends Component {
                 onExerciseSubmit={this.handleExerciseSubmit}
                 onExerciseEdit={this.handleExerciseEdit}
                 onWorkoutSubmit={this.handleWorkoutSubmit}
+                onWorkoutDelete={this.handleWorkoutDelete}
                 onDelete={this.handleDelete}
                 onShiftUp={this.handleShiftUp}
                 onShiftDown={this.handleShiftDown}

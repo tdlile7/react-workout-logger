@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import ViewWorkout from "./viewWorkout";
+import WorkoutDeleteBtn from "./workoutDeleteBtn";
 import Modal from "../common/modal";
 
 class ViewWorkouts extends Component {
   render() {
-    const { workouts } = this.props;
+    const { workouts, onWorkoutDelete } = this.props;
     const haveSavedWorkouts = workouts.length > 0;
     const modalBtnClasses = "btn btn-dark";
 
@@ -16,8 +18,14 @@ class ViewWorkouts extends Component {
           return (
             <Modal
               modalId={modalId}
-              modalTitle={workout.title}
-              modalBody={<h3>Hello</h3>}
+              modalTitle={
+                <WorkoutDeleteBtn
+                  workout={workout}
+                  onWorkoutDelete={onWorkoutDelete}
+                  modalId={modalId}
+                />
+              }
+              modalBody={<ViewWorkout workout={workout} />}
               modalBtnTitle={workout.title}
               modalBtnClasses={modalBtnClasses}
             />
