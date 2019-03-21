@@ -22,28 +22,25 @@ const exerciseSchema = new mongoose.Schema({
   }
 });
 
-const Workout = mongoose.model(
-  "Workouts",
-  new mongoose.Schema({
-    title: {
-      type: String,
-      required: true,
-      trim: true,
-      minlength: 5,
-      maxlength: 50
-    },
-    exercises: {
-      type: [exerciseSchema],
-      minlength: 1,
-      required: true
-    }
-  })
-);
+const workoutSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 1,
+    maxlength: 50
+  },
+  exercises: {
+    type: [exerciseSchema],
+    minlength: 1,
+    required: true
+  }
+});
 
 function validateWorkout(workout) {
   const schema = {
     title: Joi.string()
-      .min(5)
+      .min(1)
       .max(50)
       .required(),
     exercises: Joi.array()
@@ -69,5 +66,5 @@ function validateWorkout(workout) {
   return Joi.validate(workout, schema);
 }
 
-exports.Workout = Workout;
+exports.workoutSchema = workoutSchema;
 exports.validate = validateWorkout;
