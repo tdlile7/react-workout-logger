@@ -1,5 +1,6 @@
-const { Workout } = require("./models/workout");
+// const { Workout } = require("./models/workout");
 const { User } = require("./models/user");
+const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const config = require("config");
 
@@ -51,34 +52,41 @@ const workoutData = [
   }
 ];
 
-const userData = [
-  {
-    name: "Tommy",
-    email: "tommy1234@gmail.com",
-    password: "12345"
-  },
-  {
-    name: "Joe",
-    email: "joe1234@gmail.com",
-    password: "12345"
-  },
-  {
-    name: "Holly",
-    email: "holly1234@gmail.com",
-    password: "12345"
-  }
-];
-
 //Initializes database with seed data
 async function seed() {
   const db = config.get("db");
   mongoose.set("useCreateIndex", true);
   mongoose.connect(db, { useNewUrlParser: true });
 
-  await Workout.deleteMany({});
+  const salt = await bcrypt.genSalt(10);
+  const hashPassword = await bcrypt.hash("12345", salt);
+
+  const userData = [
+    {
+      username: "Tommy",
+      email: "tommy1234@gmail.com",
+      password: hashPassword,
+      workouts: workoutData,
+      isAdmin: true
+    },
+    {
+      username: "Joe",
+      email: "joe1234@gmail.com",
+      password: hashPassword,
+      workouts: workoutData
+    },
+    {
+      username: "Holly",
+      email: "holly1234@gmail.com",
+      password: hashPassword,
+      workouts: workoutData
+    }
+  ];
+
+  // await Workout.deleteMany({});
   await User.deleteMany({});
 
-  await Workout.insertMany(workoutData);
+  // await Workout.insertMany(workoutData);
   await User.insertMany(userData);
 
   mongoose.disconnect();
