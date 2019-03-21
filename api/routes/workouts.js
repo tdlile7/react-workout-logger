@@ -15,13 +15,11 @@ router.get("/", auth, async (req, res) => {
 //Save new workout on logged in user's account
 router.post("/", auth, async (req, res) => {
   const newWorkout = req.body;
-  console.log(newWorkout);
   const { error } = validate(newWorkout);
   if (error) return res.status(400).send(error.details[0].message);
 
   const userId = req.user._id;
   const user = await User.findOne({ _id: userId });
-  console.log(user);
   user.workouts.push(newWorkout);
   await user.save();
 

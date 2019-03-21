@@ -56,7 +56,9 @@ class WorkoutApp extends Component {
 
   handleWorkoutDelete = async workoutId => {
     await deleteWorkout(workoutId);
+    const { data: workouts } = await getWorkouts();
     this.props.history.push("/workout-app/workouts");
+    this.setState({ workouts });
   };
 
   handleDelete = exercise => {

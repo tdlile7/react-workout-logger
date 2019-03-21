@@ -8,7 +8,7 @@ import "./assets/stylesheets/app.scss";
 
 class App extends Component {
   async componentDidMount() {
-    await setTimeout(this.props.hideLoader, 2000);
+    await setTimeout(this.props.hideLoader, 1000);
   }
 
   render() {
@@ -22,14 +22,15 @@ class App extends Component {
         <NavBar user={user} showLoader={showLoader} />
         <div id="content">
           <Switch>
-            <Route path="/workout-app" component={WorkoutApp} />
+            <Route
+              path="/workout-app"
+              render={props => <WorkoutApp {...props} />}
+            />
             )} />
             <Route
               path="/"
               exact
-              render={props => (
-                <Landing showLoader={showLoader} {...this.props} />
-              )}
+              render={props => <Landing showLoader={showLoader} {...props} />}
             />
           </Switch>
         </div>
