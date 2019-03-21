@@ -1,5 +1,6 @@
 {
   "db": "mongodb://localhost/my-example-app",
   "port": "3900",
-  "requiresAuth": true
+  "requiresAuth": true,
+  "jwtPrivateKey": "unSecured Key"
 }

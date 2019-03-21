@@ -1,70 +1,72 @@
+const config = require("config");
+const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
+const { workoutSchema } = require("./workout");
 
-const exerciseSchema = new mongoose.Schema({
-  name: {
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+    minlength: 2,
+    maxlength: 50
+  },
+  email: {
     type: String,
     required: true,
     minlength: 5,
-    maxlength: 50
+    maxlength: 255,
+    unique: true
   },
-  reps: {
-    type: Number,
-    required: true,
-    min: 0,
-    max: 30
-  },
-  sets: {
-    type: Number,
-    required: true,
-    min: 0,
-    max: 10
-  }
-});
-
-const workoutSchema = new mongoose.Schema({
-  title: {
+  password: {
     type: String,
     required: true,
-    trim: true,
-    minlength: 1,
-    maxlength: 50
+    minlength: 5,
+    maxlength: 1024
   },
-  exercises: {
-    type: [exerciseSchema],
-    minlength: 1,
-    required: true
+  workouts: {
+    type: [workoutSchema]
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
   }
 });
 
-function validateWorkout(workout) {
+userSchema.methods.generateAuthToken = function() {
+  const token = jwt.sign(
+    {
+      _id: this._id,
+      username: this.username,
+      email: this.email,
+      isAdmin: this.isAdmin
+    },
+    config.get("jwtPrivateKey")
+  );
+  return token;
+};
+
+const User = mongoose.model("User", userSchema);
+
+function validateUser(user) {
   const schema = {
-    title: Joi.string()
-      .min(1)
+    username: Joi.string()
+      .min(2)
       .max(50)
       .required(),
-    exercises: Joi.array()
-      .items(
-        Joi.object().keys({
-          name: Joi.string()
-            .required()
-            .min(5)
-            .max(50),
-          reps: Joi.number()
-            .min(0)
-            .max(30)
-            .required(),
-          sets: Joi.number()
-            .min(0)
-            .max(10)
-            .required()
-        })
-      )
-      .min(1)
+    email: Joi.string()
+      .min(5)
+      .max(255)
+      .required()
+      .email(),
+    password: Joi.string()
+      .min(5)
+      .max(255)
+      .required()
   };
 
-  return Joi.validate(workout, schema);
+  return Joi.validate(user, schema);
 }
 
-exports.workoutSchema = workoutSchema;
-exports.validate = validateWorkout;
+exports.User = User;
+exports.validate = validateUser;

@@ -1,4 +1,3 @@
-// const { Workout } = require("./models/workout");
 const { User } = require("./models/user");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");

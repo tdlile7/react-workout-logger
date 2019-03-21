@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
   res
     .header("x-auth-token", token)
     .header("access-control-expose-headers", "x-auth-token")
-    .send("Access Granted");
+    .send(token);
 });
 
 function validate(req) {
