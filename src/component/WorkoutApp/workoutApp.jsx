@@ -14,6 +14,7 @@ import { Route } from "react-router-dom";
 class WorkoutApp extends Component {
   state = {
     exercises: [],
+    logs: [],
     workouts: [],
     workoutTitle: "Workout Name"
   };
@@ -60,6 +61,13 @@ class WorkoutApp extends Component {
     this.props.history.push("/workout-app/workouts");
     this.setState({ workouts });
   };
+
+  // handleLogSubmit = async log => {
+  //   await saveLog(log);
+  //   const { data: logs } = await getLogs();
+  //   this.props.history.push("/workout-app/workouts");
+  //   this.setState({ logs });
+  // };
 
   handleDelete = exercise => {
     let exercises = [...this.state.exercises];
