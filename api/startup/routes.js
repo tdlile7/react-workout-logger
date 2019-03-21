@@ -9,7 +9,7 @@ module.exports = function(app) {
   app.use(express.urlencoded({ extended: false }));
 
   app.use("/api/users", users);
-  app.use("/api/workouts", workouts);
+  app.use("/api/users/workouts", workouts);
   app.use("/api/auth", auth);
   app.use(error);
 };
