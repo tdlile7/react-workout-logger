@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 const { workoutSchema } = require("./workout");
+const { logSchema } = require("./log");
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -26,6 +27,9 @@ const userSchema = new mongoose.Schema({
   },
   workouts: {
     type: [workoutSchema]
+  },
+  logs: {
+    type: [logSchema]
   },
   isAdmin: {
     type: Boolean,

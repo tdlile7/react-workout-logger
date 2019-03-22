@@ -8,6 +8,11 @@ import {
   saveWorkout,
   deleteWorkout
 } from "../../services/workoutService";
+// import {
+//   getLogs,
+//   saveLog,
+//   deleteLog
+// } from "../../services/logComponentService";
 import auth from "../../services/authService";
 import { Route } from "react-router-dom";
 

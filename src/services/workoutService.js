@@ -17,7 +17,5 @@ export function saveWorkout(workout) {
 }
 
 export function deleteWorkout(workoutId) {
-  console.log("Workout Id", workoutId);
-  console.log(workoutUrl("Path:", workoutId));
   return http.delete(workoutUrl(workoutId));
 }

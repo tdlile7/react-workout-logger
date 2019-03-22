@@ -13,7 +13,7 @@ class AddNewLog extends Component {
             <Modal
               modalId={modalId}
               modalTitle={workout.title}
-              modalBody={<LogForm />}
+              modalBody={<LogForm workout={workout} />}
               modalBtnTitle={workout.title}
             />
           );
