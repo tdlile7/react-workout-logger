@@ -32,6 +32,13 @@ const exerciseSchema = new mongoose.Schema({
 });
 
 const logSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 1,
+    maxlength: 50
+  },
   records: {
     type: [exerciseSchema],
     minlength: 1,
@@ -41,6 +48,10 @@ const logSchema = new mongoose.Schema({
 
 function validateLog(log) {
   const schema = {
+    title: Joi.string()
+      .required()
+      .min(1)
+      .max(50),
     records: Joi.array()
       .items(
         Joi.object().keys({

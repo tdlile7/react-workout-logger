@@ -51,6 +51,89 @@ const workoutData = [
   }
 ];
 
+// ==================================
+
+const logData = [
+  {
+    title: "Back Day",
+    records: [
+      {
+        name: "Push Ups",
+        data: [
+          {
+            reps: 10,
+            weight: 25
+          },
+          {
+            reps: 10,
+            weight: 25
+          },
+          {
+            reps: 8,
+            weight: 30
+          }
+        ]
+      },
+      {
+        name: "Pull Ups",
+        data: [
+          {
+            reps: 8,
+            weight: 0
+          },
+          {
+            reps: 8,
+            weight: 0
+          },
+          {
+            reps: 8,
+            weight: 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    title: "Arm Day",
+    records: [
+      {
+        name: "Bicep Curl",
+        data: [
+          {
+            reps: 12,
+            weight: 25
+          },
+          {
+            reps: 12,
+            weight: 30
+          },
+          {
+            reps: 8,
+            weight: 35
+          }
+        ]
+      },
+      {
+        name: "Tricep Extensions",
+        data: [
+          {
+            reps: 8,
+            weight: 20
+          },
+          {
+            reps: 8,
+            weight: 25
+          },
+          {
+            reps: 8,
+            weight: 25
+          }
+        ]
+      }
+    ]
+  }
+];
+
 //Initializes database with seed data
 async function seed() {
   const db = config.get("db");
@@ -66,19 +149,22 @@ async function seed() {
       email: "tommy1234@gmail.com",
       password: hashPassword,
       workouts: workoutData,
+      logs: logData,
       isAdmin: true
     },
     {
       username: "Joe",
       email: "joe1234@gmail.com",
       password: hashPassword,
-      workouts: workoutData
+      workouts: workoutData,
+      logs: logData
     },
     {
       username: "Holly",
       email: "holly1234@gmail.com",
       password: hashPassword,
-      workouts: workoutData
+      workouts: workoutData,
+      logs: logData
     }
   ];
 
