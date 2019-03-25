@@ -4,80 +4,113 @@ import Form from "../common/form";
 
 class LogForm extends Form {
   state = {
-    data: {
-      exercises: []
-    },
+    data: {},
     errors: {}
   };
 
-  schema = {
-    reps: Joi.number()
+  generateSchema = exercises => {
+    const schema = {};
+    exercises.map(exercise => {
+      let { name, sets } = exercise;
+      name = name.replace(" ", "").toLowerCase();
+
+      for (let i = 1; i <= sets; i++) {
+        const schemaProp1 = `${name}rep${i}`;
+        const schemaProp2 = `${name}weight${i}`;
+        schema[schemaProp1] = this.generateSchemaProp1(schemaProp1);
+        schema[schemaProp2] = this.generateSchemaProp2(schemaProp2);
+      }
+      return null;
+    });
+
+    return schema;
+  };
+
+  generateSchemaProp1 = prop => {
+    return Joi.number()
       .required()
       .min(1)
       .max(30)
-      .label("Reps"),
-    weight: Joi.number()
+      .label("Reps");
+  };
+
+  generateSchemaProp2 = prop => {
+    return Joi.number()
       .required()
       .min(1)
       .max(20)
-      .label("Weight")
+      .label("Weight");
   };
+
+  generateInputName = (exerciseName, inputType, setNumber) => {
+    const exercise = exerciseName.replace(" ", "").toLowerCase();
+    return `${exercise}${inputType}${setNumber}`;
+  };
+
+  generateData = (exercises, title) => {
+    const stateData = {};
+    const inputData = exercises.map(exercise => {
+      let { name, sets } = exercise;
+      let inputGroup = {
+        title: "",
+        rounds: []
+      };
+
+      inputGroup.title = name;
+
+      for (let i = 1; i <= sets; i++) {
+        const reps = this.generateInputName(name, "reps", i);
+        const weight = this.generateInputName(name, "weight", i);
+        stateData[reps] = 0;
+        stateData[weight] = 0;
+
+        inputGroup.rounds.push(
+          this.renderInput(title, reps, "Reps", "number", 1, 30)
+        );
+        inputGroup.rounds.push(
+          this.renderInput(title, weight, "Weight", "number", 1, 20)
+        );
+      }
+      return inputGroup;
+    });
+
+    return {
+      inputData: inputData,
+      stateData: stateData
+    };
+  };
+
+  schema = this.generateSchema(this.props.workout.exercises);
+
+  componentDidUpdate() {
+    console.log("State Data", this.state.data);
+  }
 
   doSubmit = () => {
-    // const { onExerciseSubmit } = this.props;
-    const log = { ...this.state.data };
-    // onExerciseSubmit(exercise);
-    console.log(log);
+    const { workout } = this.props;
+    const { exercises } = workout;
+    const roundData = Object.keys({ ...this.state.data });
+    console.log("Data has been submited to the server", roundData);
 
     //Reset input values
-    const data = { ...this.state.data };
-    const keys = Object.keys(data);
-    keys.map(key => (data[key] = ""));
-    this.setState({ data });
-  };
-
-  parseData = exercises => {
-    return exercises.map(exercise => {
-      const parsedExercise = {
-        name: exercise.name,
-        goal: exercise.reps,
-        records: []
-      };
-      for (let i = 0; i < exercise.sets; i++) {
-        parsedExercise.records.push(`Set Number:${i}`);
-      }
-      return parsedExercise;
-    });
+    this.setState({ data: this.generateData(exercises).stateData });
   };
 
   render() {
-    const title = "Log Form";
+    const { workout } = this.props;
     const { exercises } = this.props.workout;
-    const parsedData = this.parseData(exercises);
+    let title = workout.title.replace(" ", "");
+    const inputData = this.generateData(exercises, title).inputData;
+
     return (
       <div id="template-form">
         <form onSubmit={this.handleSubmit}>
-          {parsedData.map(exercise => {
-            const { name, goal, records } = exercise;
+          {inputData.map((input, i) => {
             return (
               <div>
-                <p>
-                  {name}(GOAL:{goal})
-                </p>
-                {records.map(() => {
-                  return (
-                    <div>
-                      {this.renderInput(title, "reps", "Reps", "number", 1, 30)}
-                      {this.renderInput(
-                        title,
-                        "weight",
-                        "Weight",
-                        "number",
-                        1,
-                        20
-                      )}
-                    </div>
-                  );
+                <h3>{input.title}</h3>
+                {inputData[i].rounds.map(roundInput => {
+                  return roundInput;
                 })}
               </div>
             );

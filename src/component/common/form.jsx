@@ -81,7 +81,7 @@ class Form extends Component {
       <Input
         type={type}
         name={name}
-        formTitle={title}
+        title={title}
         value={data[name]}
         label={label}
         onChange={this.handleChange}
