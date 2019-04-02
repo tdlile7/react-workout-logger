@@ -1,21 +1,26 @@
 import React, { Component } from "react";
-import Modal from "../common/modal";
-import LogForm from "./logForm";
+import { Link } from "react-router-dom";
 
 class AddNewLog extends Component {
+  handleSelect = workout => {
+    const { onWorkoutSelected } = this.props;
+    onWorkoutSelected(workout);
+  };
+
   render() {
     const { workouts } = this.props;
     return (
       <div className="log-group">
-        {workouts.map(workout => {
-          const modalId = "Log" + workout.title.replace(" ", "");
+        {workouts.map((workout, i) => {
           return (
-            <Modal
-              modalId={modalId}
-              modalTitle={workout.title}
-              modalBody={<LogForm workout={workout} />}
-              modalBtnTitle={workout.title}
-            />
+            <Link
+              to={`/workout-app/logs/new/${i}`}
+              onClick={() => {
+                this.handleSelect(workout);
+              }}
+            >
+              {workout.title}
+            </Link>
           );
         })}
       </div>

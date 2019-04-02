@@ -43,7 +43,8 @@ userSchema.methods.generateAuthToken = function() {
       _id: this._id,
       username: this.username,
       email: this.email,
-      isAdmin: this.isAdmin
+      isAdmin: this.isAdmin,
+      exp: Math.floor(Date.now() / 1000) + 60 * 30
     },
     config.get("jwtPrivateKey")
   );

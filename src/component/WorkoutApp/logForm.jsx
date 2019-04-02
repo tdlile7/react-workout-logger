@@ -4,21 +4,25 @@ import Form from "../common/form";
 
 class LogForm extends Form {
   state = {
-    data: {},
+    workout: { ...JSON.parse(localStorage.getItem("workout")) },
+    data: { ...JSON.parse(localStorage.getItem("data")) },
     errors: {}
   };
 
-  generateSchema = exercises => {
+  generateSchema = () => {
+    const { workout } = this.state;
+    const { exercises } = workout;
     const schema = {};
+
     exercises.map(exercise => {
       let { name, sets } = exercise;
       name = name.replace(" ", "").toLowerCase();
 
       for (let i = 1; i <= sets; i++) {
-        const schemaProp1 = `${name}rep${i}`;
+        const schemaProp1 = `${name}reps${i}`;
         const schemaProp2 = `${name}weight${i}`;
-        schema[schemaProp1] = this.generateSchemaProp1(schemaProp1);
-        schema[schemaProp2] = this.generateSchemaProp2(schemaProp2);
+        schema[schemaProp1] = this.generateSchemaProp1();
+        schema[schemaProp2] = this.generateSchemaProp2();
       }
       return null;
     });
@@ -26,7 +30,7 @@ class LogForm extends Form {
     return schema;
   };
 
-  generateSchemaProp1 = prop => {
+  generateSchemaProp1 = () => {
     return Joi.number()
       .required()
       .min(1)
@@ -34,7 +38,7 @@ class LogForm extends Form {
       .label("Reps");
   };
 
-  generateSchemaProp2 = prop => {
+  generateSchemaProp2 = () => {
     return Joi.number()
       .required()
       .min(1)
@@ -42,14 +46,9 @@ class LogForm extends Form {
       .label("Weight");
   };
 
-  generateInputName = (exerciseName, inputType, setNumber) => {
-    const exercise = exerciseName.replace(" ", "").toLowerCase();
-    return `${exercise}${inputType}${setNumber}`;
-  };
-
-  generateData = (exercises, title) => {
-    const stateData = {};
-    const inputData = exercises.map(exercise => {
+  generateInputs = (exercises, title) => {
+    const { generateInputName } = this.props;
+    const inputs = exercises.map(exercise => {
       let { name, sets } = exercise;
       let inputGroup = {
         title: "",
@@ -59,10 +58,8 @@ class LogForm extends Form {
       inputGroup.title = name;
 
       for (let i = 1; i <= sets; i++) {
-        const reps = this.generateInputName(name, "reps", i);
-        const weight = this.generateInputName(name, "weight", i);
-        stateData[reps] = 0;
-        stateData[weight] = 0;
+        const reps = generateInputName(name, "reps", i);
+        const weight = generateInputName(name, "weight", i);
 
         inputGroup.rounds.push(
           this.renderInput(title, reps, "Reps", "number", 1, 30)
@@ -74,42 +71,30 @@ class LogForm extends Form {
       return inputGroup;
     });
 
-    return {
-      inputData: inputData,
-      stateData: stateData
-    };
+    return inputs;
   };
 
-  schema = this.generateSchema(this.props.workout.exercises);
-
-  componentDidUpdate() {
-    console.log("State Data", this.state.data);
-  }
+  schema = this.generateSchema();
 
   doSubmit = () => {
-    const { workout } = this.props;
-    const { exercises } = workout;
     const roundData = Object.keys({ ...this.state.data });
     console.log("Data has been submited to the server", roundData);
-
-    //Reset input values
-    this.setState({ data: this.generateData(exercises).stateData });
   };
 
   render() {
-    const { workout } = this.props;
-    const { exercises } = this.props.workout;
+    const { workout } = this.state;
+    const { exercises } = workout;
     let title = workout.title.replace(" ", "");
-    const inputData = this.generateData(exercises, title).inputData;
+    const inputs = this.generateInputs(exercises, title);
 
     return (
       <div id="template-form">
         <form onSubmit={this.handleSubmit}>
-          {inputData.map((input, i) => {
+          {inputs.map((input, i) => {
             return (
               <div>
                 <h3>{input.title}</h3>
-                {inputData[i].rounds.map(roundInput => {
+                {inputs[i].rounds.map(roundInput => {
                   return roundInput;
                 })}
               </div>

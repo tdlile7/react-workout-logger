@@ -27,8 +27,15 @@ class WorkoutApp extends Component {
   //If user is not logged in, browser will be redirected to landing page
   async componentDidMount() {
     const user = auth.getCurrentUser();
-    if (!user) window.location = "/";
+    if (!user) this.props.history.replace("/");
     else {
+      var tokenExp = user.exp;
+      var currentTime = new Date().getTime() / 1000;
+      if (currentTime > tokenExp) {
+        auth.logout();
+        this.props.history.replace("/");
+        return;
+      }
       const { data: workouts } = await getWorkouts();
       this.setState({ workouts });
     }
@@ -54,10 +61,15 @@ class WorkoutApp extends Component {
   handleWorkoutSubmit = async workout => {
     const title = this.state.workoutTitle;
     const newWorkout = { exercises: workout, title };
-    await saveWorkout(newWorkout);
-    const { data: workouts } = await getWorkouts();
-    this.props.history.push("/workout-app/workouts");
-    this.setState({ exercises: [], workouts, workoutTitle: "Workout Name" });
+    try {
+      await saveWorkout(newWorkout);
+      const { data: workouts } = await getWorkouts();
+      this.props.history.push("/workout-app/workouts");
+      this.setState({ exercises: [], workouts, workoutTitle: "Workout Name" });
+    } catch (err) {
+      auth.logout();
+      this.props.history.replace("/");
+    }
   };
 
   handleWorkoutDelete = async workoutId => {

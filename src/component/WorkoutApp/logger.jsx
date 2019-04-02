@@ -1,11 +1,44 @@
 import React, { Component } from "react";
 import ContentNav from "../shared/contentNav";
+import LogForm from "./logForm";
 import { Route } from "react-router-dom";
 import AddNewLog from "./addNewLog";
 
 class Logger extends Component {
+  handleWorkoutSelected = workout => {
+    const data = this.generateFormData(workout);
+
+    localStorage.setItem("workout", JSON.stringify(workout));
+    localStorage.setItem("data", JSON.stringify(data));
+  };
+
+  generateInputName = (exerciseName, inputType, setNumber) => {
+    const exercise = exerciseName.replace(" ", "").toLowerCase();
+    return `${exercise}${inputType}${setNumber}`;
+  };
+
+  generateFormData = workout => {
+    const formData = {};
+    const { exercises } = workout;
+
+    exercises.map(exercise => {
+      let { name, sets } = exercise;
+
+      for (let i = 1; i <= sets; i++) {
+        const reps = this.generateInputName(name, "reps", i);
+        const weight = this.generateInputName(name, "weight", i);
+        formData[reps] = 0;
+        formData[weight] = 0;
+      }
+      return null;
+    });
+
+    return formData;
+  };
+
   render() {
     const { workouts } = this.props;
+
     return (
       <div id="logger">
         <Route
@@ -16,8 +49,22 @@ class Logger extends Component {
           )}
         />
         <Route
+          path="/workout-app/logs/new/:id"
+          exact
+          render={props => (
+            <LogForm generateInputName={this.generateInputName} {...props} />
+          )}
+        />
+        <Route
           path="/workout-app/logs/new"
-          render={props => <AddNewLog workouts={workouts} {...props} />}
+          exact
+          render={props => (
+            <AddNewLog
+              onWorkoutSelected={this.handleWorkoutSelected}
+              workouts={workouts}
+              {...props}
+            />
+          )}
         />
       </div>
     );
