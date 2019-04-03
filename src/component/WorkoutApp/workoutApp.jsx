@@ -8,11 +8,11 @@ import {
   saveWorkout,
   deleteWorkout
 } from "../../services/workoutService";
-// import {
-//   getLogs,
-//   saveLog,
-//   deleteLog
-// } from "../../services/logComponentService";
+import {
+  getLogs,
+  saveLog,
+  deleteLog
+} from "../../services/logComponentService";
 import auth from "../../services/authService";
 import { Route } from "react-router-dom";
 
@@ -36,8 +36,12 @@ class WorkoutApp extends Component {
         this.props.history.replace("/");
         return;
       }
+
       const { data: workouts } = await getWorkouts();
-      this.setState({ workouts });
+      const { data: logs } = await getLogs();
+      console.log("Logs", logs);
+
+      this.setState({ workouts, logs });
     }
   }
 
@@ -79,12 +83,19 @@ class WorkoutApp extends Component {
     this.setState({ workouts });
   };
 
-  // handleLogSubmit = async log => {
-  //   await saveLog(log);
-  //   const { data: logs } = await getLogs();
-  //   this.props.history.push("/workout-app/workouts");
-  //   this.setState({ logs });
-  // };
+  handleLogSubmit = async log => {
+    await saveLog(log);
+    const { data: logs } = await getLogs();
+    this.props.history.push("/workout-app/logs");
+    this.setState({ logs });
+  };
+
+  handleLogDelete = async logId => {
+    await deleteLog(logId);
+    const { data: logs } = await getLogs();
+    this.props.history.push("/workout-app/logs");
+    this.setState({ logs });
+  };
 
   handleDelete = exercise => {
     let exercises = [...this.state.exercises];
@@ -115,7 +126,7 @@ class WorkoutApp extends Component {
     this.setState({ workoutTitle: newTitle });
   };
   render() {
-    const { exercises, workouts, workoutTitle } = this.state;
+    const { exercises, workouts, logs, workoutTitle } = this.state;
 
     return (
       <React.Fragment>
@@ -125,7 +136,15 @@ class WorkoutApp extends Component {
           <Route path="/workout-app/instructions" component={Instructions} />
           <Route
             path="/workout-app/logs"
-            render={props => <Logger workouts={workouts} {...props} />}
+            render={props => (
+              <Logger
+                workouts={workouts}
+                logs={logs}
+                onLogSubmit={this.handleLogSubmit}
+                onLogDelete={this.handleLogDelete}
+                {...props}
+              />
+            )}
           />
           <Route
             path="/workout-app/workouts"

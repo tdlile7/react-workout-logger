@@ -61,14 +61,17 @@ const logData = [
         name: "Push Ups",
         data: [
           {
+            set: 1,
             reps: 10,
             weight: 25
           },
           {
+            set: 2,
             reps: 10,
             weight: 25
           },
           {
+            set: 3,
             reps: 8,
             weight: 30
           }
@@ -78,14 +81,17 @@ const logData = [
         name: "Pull Ups",
         data: [
           {
+            set: 1,
             reps: 8,
             weight: 0
           },
           {
+            set: 2,
             reps: 8,
             weight: 0
           },
           {
+            set: 3,
             reps: 8,
             weight: 0
           }
@@ -100,14 +106,17 @@ const logData = [
         name: "Bicep Curl",
         data: [
           {
+            set: 1,
             reps: 12,
             weight: 25
           },
           {
+            set: 2,
             reps: 12,
             weight: 30
           },
           {
+            set: 3,
             reps: 8,
             weight: 35
           }
@@ -117,14 +126,17 @@ const logData = [
         name: "Tricep Extensions",
         data: [
           {
+            set: 1,
             reps: 8,
             weight: 20
           },
           {
+            set: 2,
             reps: 8,
             weight: 25
           },
           {
+            set: 3,
             reps: 8,
             weight: 25
           }

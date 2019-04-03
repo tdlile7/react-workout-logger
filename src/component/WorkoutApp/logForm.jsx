@@ -77,8 +77,39 @@ class LogForm extends Form {
   schema = this.generateSchema();
 
   doSubmit = () => {
-    const roundData = Object.keys({ ...this.state.data });
-    console.log("Data has been submited to the server", roundData);
+    const { onLogSubmit } = this.props;
+    const { workout } = this.state;
+    const stateData = this.state.data;
+    const stateDataKeys = Object.keys(this.state.data);
+    let counter = 0;
+
+    const records = workout.exercises.map(exercise => {
+      const { name, sets } = exercise;
+      const data = [];
+      for (let i = 0; i < sets; i++) {
+        const round = {
+          set: i + 1,
+          reps: stateData[stateDataKeys[counter]],
+          weight: stateData[stateDataKeys[counter + 1]]
+        };
+        counter += 2;
+        data.push(round);
+      }
+
+      return { name, data };
+    });
+
+    const newLog = {
+      title: workout.title,
+      records
+    };
+    console.log("New Log Submitted:", newLog);
+    onLogSubmit(newLog);
+
+    const data = { ...this.state.data };
+    const keys = Object.keys(data);
+    keys.map(key => (data[key] = 0));
+    this.setState({ data });
   };
 
   render() {

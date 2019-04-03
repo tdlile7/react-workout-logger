@@ -2,6 +2,12 @@ const Joi = require("joi");
 const mongoose = require("mongoose");
 
 const roundSchema = new mongoose.Schema({
+  set: {
+    type: Number,
+    required: true,
+    min: 0,
+    max: 10
+  },
   reps: {
     type: Number,
     required: true,
@@ -62,6 +68,10 @@ function validateLog(log) {
           data: Joi.array()
             .items(
               Joi.object().keys({
+                set: Joi.number()
+                  .required()
+                  .min(0)
+                  .max(30),
                 reps: Joi.number()
                   .required()
                   .min(0)

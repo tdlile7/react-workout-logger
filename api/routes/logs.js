@@ -1,5 +1,5 @@
 const { User } = require("../models/user");
-const { validate } = require("../models/workout");
+const { validate } = require("../models/log");
 const auth = require("../middleware/auth");
 const mongoose = require("mongoose");
 const express = require("express");

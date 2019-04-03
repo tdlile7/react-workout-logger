@@ -12,7 +12,6 @@ export function getLogs() {
 }
 
 export function saveLog(log) {
-  console.log(log);
   return http.post(apiEndpoint, log);
 }
 

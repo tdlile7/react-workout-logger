@@ -3,6 +3,7 @@ import ContentNav from "../shared/contentNav";
 import LogForm from "./logForm";
 import { Route } from "react-router-dom";
 import AddNewLog from "./addNewLog";
+import ViewLogs from "./viewLogs";
 
 class Logger extends Component {
   handleWorkoutSelected = workout => {
@@ -37,7 +38,7 @@ class Logger extends Component {
   };
 
   render() {
-    const { workouts } = this.props;
+    const { workouts, logs, onLogSubmit, onLogDelete } = this.props;
 
     return (
       <div id="logger">
@@ -52,7 +53,11 @@ class Logger extends Component {
           path="/workout-app/logs/new/:id"
           exact
           render={props => (
-            <LogForm generateInputName={this.generateInputName} {...props} />
+            <LogForm
+              generateInputName={this.generateInputName}
+              onLogSubmit={onLogSubmit}
+              {...props}
+            />
           )}
         />
         <Route
@@ -64,6 +69,12 @@ class Logger extends Component {
               workouts={workouts}
               {...props}
             />
+          )}
+        />
+        <Route
+          path="/workout-app/logs/all"
+          render={props => (
+            <ViewLogs logs={logs} onLogDelete={onLogDelete} {...props} />
           )}
         />
       </div>
