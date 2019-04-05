@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Logger from "./Logs/logger";
 import WorkoutTemplate from "./Workouts/workoutTemplate";
-import SubNav from "./subNav";
+import SubNav from "./shared/subNav";
 import Instructions from "./Instructions/instructions";
 import {
   getWorkouts,

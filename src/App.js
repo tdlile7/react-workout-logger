@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import WorkoutApp from "./component/WorkoutApp/workoutApp";
-import NavBar from "./component/shared/navBar";
+import NavBar from "./component/fixed/navBar";
 import Landing from "./component/Landing/landing";
 import { Switch, Route } from "react-router-dom";
 import auth from "./services/authService";
