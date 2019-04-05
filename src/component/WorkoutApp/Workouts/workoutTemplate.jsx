@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ContentNav from "../shared/contentNav";
+import ContentNav from "../../shared/contentNav";
 import AddNewWorkout from "./addNewWorkout";
 import ViewWorkouts from "./viewWorkouts";
 import { Route } from "react-router-dom";

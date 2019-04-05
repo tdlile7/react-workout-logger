@@ -1,6 +1,6 @@
 import React from "react";
 import EditWorkoutTitle from "./editWorkoutTitle";
-import Modal from "../common/modal";
+import Modal from "../../common/modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 

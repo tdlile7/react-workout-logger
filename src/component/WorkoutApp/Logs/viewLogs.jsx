@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ViewLog from "./viewLog";
 import LogDeleteBtn from "./logDeleteBtn";
-import Modal from "../common/modal";
+import Modal from "../../common/modal";
 
 class ViewLogs extends Component {
   render() {

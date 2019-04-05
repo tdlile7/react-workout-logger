@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ViewWorkout from "./viewWorkout";
 import WorkoutDeleteBtn from "./workoutDeleteBtn";
-import Modal from "../common/modal";
+import Modal from "../../common/modal";
 
 class ViewWorkouts extends Component {
   render() {
