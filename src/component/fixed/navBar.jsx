@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Logout from "../common/logout";
+import Clock from "../common/clock";
 
 class NavBar extends Component {
   render() {
@@ -18,6 +19,7 @@ class NavBar extends Component {
         {user && (
           <div>
             <h3>{greetingsHeader}</h3>
+            <Clock />
             <Logout showLoader={showLoader} />
           </div>
         )}
