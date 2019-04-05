@@ -43,7 +43,7 @@ class ExerciseForm extends Form {
   render() {
     const title = "Exercise Form";
     return (
-      <div id="template-form">
+      <div id="exercise-form">
         <h2>
           <span class="badge badge-secondary">Template Form</span>
         </h2>

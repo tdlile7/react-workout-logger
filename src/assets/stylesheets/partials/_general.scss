@@ -12,3 +12,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+// General modal container styles
+.modal .close {
+  outline: none;
+}
+
+//General form styles
+form {
+  .errorMessage {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .form-control:focus {
+    border: 1.5px solid #555;
+    box-shadow: none;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+  }
+}

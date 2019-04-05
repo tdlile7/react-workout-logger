@@ -17,8 +17,8 @@ class PreviewWorkout extends Component {
     } = this.props;
 
     return (
-      <div id="custom-template">
-        <div id="exercise-list-container">
+      <div id="custom-workout">
+        <div id="preview">
           <WorkoutTitle
             workoutTitle={workoutTitle}
             onTitleChange={onTitleChange}

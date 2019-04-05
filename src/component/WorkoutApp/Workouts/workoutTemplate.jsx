@@ -20,7 +20,7 @@ class WorkoutTemplate extends Component {
       onTitleChange
     } = this.props;
     return (
-      <div id="template">
+      <div id="workout-template">
         <Route
           path="/workout-app/workouts"
           exact

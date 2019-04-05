@@ -6,7 +6,7 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const WorkoutTitle = ({ workoutTitle, onTitleChange }) => {
   return (
-    <h2>
+    <h2 id="workout-title">
       {workoutTitle}
       <Modal
         modalId="WorkoutTitle"

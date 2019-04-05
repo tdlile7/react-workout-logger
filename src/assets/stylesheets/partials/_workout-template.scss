@@ -1,8 +1,8 @@
-#template {
+#workout-template {
   display: flex;
   flex-direction: column;
 
-  #template-form {
+  #exercise-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,7 +16,7 @@
     display: none;
   }
 
-  #custom-template {
+  #custom-workout {
     display: flex;
     flex-direction: column;
     padding-top: 5vh;
@@ -28,13 +28,13 @@
 }
 
 @media (min-width: 992px) {
-  #template {
+  #workout-template {
     height: 80vh;
     width: 90vw;
     justify-content: center;
     flex-direction: row;
 
-    #template-form {
+    #exercise-form {
       justify-content: flex-start;
       min-height: 80%;
       min-width: 30%;
@@ -58,7 +58,7 @@
       }
     }
 
-    #custom-template {
+    #custom-workout {
       min-width: 55%;
       max-height: 85%;
       margin: 5vh 0 0 0;
@@ -69,8 +69,8 @@
 }
 
 @media (min-width: 1200px) {
-  #template {
-    #template-form {
+  #workout-template {
+    #exercise-form {
       min-width: 25%;
     }
 
