@@ -10,20 +10,19 @@ class Instructions extends Component {
           exercises.
         </p>
         <h3>How to Get Started:</h3>
-        <ul>
+        <ol>
           <li>
-            First create and save custom workout routines that you will use as
-            templates for future workouts.{" "}
+            First create and save custom workout routines that you will be used
+            as templates for future workouts.
           </li>
           <li>
-            Create new logs which will follow the outline of a previously saved
-            template to help record your weights for each set of every exercise
-            performed in the routine.
+            Create new logs to record weights performed for each set of every
+            exercise within a chosen saved routine.
           </li>
           <li>
             View previously saved logs to track and observe your progress.
           </li>
-        </ul>
+        </ol>
       </div>
     );
   }

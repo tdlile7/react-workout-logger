@@ -6,17 +6,38 @@
 
 #instructions {
   @extend %instructions-display-setting;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-}
-
-#instructions p {
-  @extend %instructions-display-setting;
-  text-align: center;
-  width: 80%;
-  height: 80%;
-  font-size: 32px;
-  margin: 0;
   background: white;
-  border-radius: 25px;
+  opacity: 0.75;
+
+  > * {
+    width: 80%;
+    margin: 0;
+  }
+
+  p,
+  ol li {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  ol {
+    padding: 0;
+
+    li {
+      padding: 5px 0;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 2rem;
+    text-decoration: underline;
+  }
+
+  > :not(h3) {
+    padding: 1.5rem 0;
+  }
 }
