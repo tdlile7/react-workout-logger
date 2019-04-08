@@ -1,0 +1,58 @@
+#logger {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+
+  #templates {
+    height: 80%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      padding: 20px;
+      font-size: 1.75rem;
+      border: 2px solid black;
+      border-radius: 20px;
+      background: white;
+    }
+
+    #template-options {
+      height: 80%;
+      width: 40%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-y: auto;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        min-height: 15%;
+        height: 20%;
+        width: 100%;
+        color: white;
+        background: rgb(54, 54, 54);
+        opacity: 0.85;
+        border-left: 2.5px solid black;
+        border-right: 2.5px solid black;
+        border-bottom: 2.5px solid black;
+
+        &:hover {
+          text-decoration: none;
+          opacity: 1;
+        }
+
+        &:first-of-type {
+          margin-top: 20px;
+          border-top: 2.5px solid black;
+        }
+      }
+    }
+  }
+}

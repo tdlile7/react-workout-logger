@@ -9,20 +9,26 @@ class AddNewLog extends Component {
 
   render() {
     const { workouts } = this.props;
+    const haveSavedWorkouts = workouts.length > 0;
+
     return (
-      <div className="log-group">
-        {workouts.map((workout, i) => {
-          return (
-            <Link
-              to={`/workout-app/logs/new/${i}`}
-              onClick={() => {
-                this.handleSelect(workout);
-              }}
-            >
-              {workout.title}
-            </Link>
-          );
-        })}
+      <div id="templates">
+        {!haveSavedWorkouts && <h1>No templates have been saved</h1>}
+        {haveSavedWorkouts && <h1>Templates:</h1>}
+        <div id="template-options">
+          {workouts.map((workout, i) => {
+            return (
+              <Link
+                to={`/workout-app/logs/new/${i}`}
+                onClick={() => {
+                  this.handleSelect(workout);
+                }}
+              >
+                {workout.title}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     );
   }
