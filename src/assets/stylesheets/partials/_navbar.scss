@@ -21,20 +21,29 @@ nav {
       color: rgb(177, 174, 174);
     }
   }
-  div {
-    width: 40%;
+
+  #nav-info {
+    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     h3 {
       margin: 0;
+      font-size: 2rem;
       color: white;
+    }
+
+    #clock {
+      p {
+        font-size: 2rem;
+        margin: 0;
+      }
     }
 
     button {
       height: 6.5vh;
-      width: 25%;
+      width: 20%;
       margin: 0;
       padding: 0;
       color: rgb(65, 64, 64);

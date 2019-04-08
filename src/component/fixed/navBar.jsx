@@ -17,7 +17,7 @@ class NavBar extends Component {
           <h2>WELog</h2>
         </Link>
         {user && (
-          <div>
+          <div id="nav-info">
             <h3>{greetingsHeader}</h3>
             <Clock />
             <Logout showLoader={showLoader} />
