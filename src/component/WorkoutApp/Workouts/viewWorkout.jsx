@@ -6,15 +6,17 @@ class ViewWorkout extends Component {
     const { exercises } = workout;
 
     return (
-      <div id="edit-workout-form">
-        {exercises.map(exercise => {
-          return (
-            <li>{`Name: ${exercise.name} Reps: ${exercise.reps} Sets: ${
-              exercise.sets
-            }`}</li>
-          );
-        })}
-      </div>
+      <React.Fragment>
+        <ul>
+          {exercises.map((exercise, index) => {
+            return (
+              <li>{`${index + 1}. ${exercise.name} for ${
+                exercise.sets
+              } sets, target is ${exercise.reps} reps per set `}</li>
+            );
+          })}
+        </ul>
+      </React.Fragment>
     );
   }
 }

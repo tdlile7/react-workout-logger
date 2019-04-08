@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 class WorkoutDeleteBtn extends Component {
   handleSubmit = e => {
@@ -13,16 +15,18 @@ class WorkoutDeleteBtn extends Component {
     const dataTarget = `#${modalId}`;
     const title = workout.title;
     return (
-      <div>
+      <React.Fragment>
         {title}
         <button
+          type="button"
+          className="btn btn-danger btn-md"
           onClick={this.handleSubmit}
           data-toggle={dataToggle}
           data-target={dataTarget}
         >
-          Delete
+          <FontAwesomeIcon icon={faTrashAlt} />
         </button>
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -13,7 +13,7 @@ class LogDeleteBtn extends Component {
     const dataTarget = `#${modalId}`;
     const title = log.title;
     return (
-      <div>
+      <React.Fragment>
         {title}
         <button
           onClick={this.handleSubmit}
@@ -22,7 +22,7 @@ class LogDeleteBtn extends Component {
         >
           Delete
         </button>
-      </div>
+      </React.Fragment>
     );
   }
 }

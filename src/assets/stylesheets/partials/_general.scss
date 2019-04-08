@@ -14,8 +14,14 @@ code {
 }
 
 // General modal container styles
-.modal .close {
-  outline: none;
+.modal {
+  .btn:hover {
+    cursor: pointer;
+  }
+
+  .close {
+    outline: none;
+  }
 }
 
 //General form styles
