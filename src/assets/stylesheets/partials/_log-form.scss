@@ -1,0 +1,94 @@
+#log-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    height: 15%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #exercises-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 10px;
+    padding: 10px;
+    height: 70%;
+    width: 95%;
+    max-height: 80%;
+    overflow-y: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: rgba(255, 254, 254, 0.975);
+
+    .exercise-group {
+      height: 100%;
+      width: 95%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h3 {
+        margin: 10px 0;
+        padding: 10px;
+        width: 50%;
+        text-align: center;
+        font-size: 1.5rem;
+        border: 2px solid black;
+        border-radius: 20px;
+        background: rgba(165, 165, 165, 0.8);
+        color: black;
+      }
+
+      .set-group {
+        display: flex;
+        margin: 5px 0 5px 5px;
+        height: 100px;
+        width: 100%;
+        border: 2px solid black;
+        border-radius: 5px;
+
+        .set-number {
+          width: 12.5%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.25rem;
+          margin: 0;
+          border-right: 1.25px dotted black;
+          background: rgba(165, 165, 165, 0.8);
+        }
+
+        .form-group {
+          width: 40%;
+          margin: 5px;
+
+          input {
+            border: 1px solid black;
+          }
+        }
+      }
+    }
+  }
+
+  .save-button {
+    height: 12.5%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    right: 10%;
+
+    button {
+      height: 70%;
+      width: 15%;
+    }
+  }
+}

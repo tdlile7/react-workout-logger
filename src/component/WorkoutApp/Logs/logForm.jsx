@@ -62,10 +62,14 @@ class LogForm extends Form {
         const weight = generateInputName(name, "weight", i);
 
         inputGroup.rounds.push(
-          this.renderInput(title, reps, "Reps", "number", 1, 30)
-        );
-        inputGroup.rounds.push(
-          this.renderInput(title, weight, "Weight", "number", 1, 20)
+          <div className="set-group">
+            <h4 className="set-number">
+              <div>Set</div>
+              <div>{`${i}`}</div>
+            </h4>
+            {this.renderInput(title, reps, "Reps", "number", 1, 30)}
+            {this.renderInput(title, weight, "Weight", "number", 1, 20)}
+          </div>
         );
       }
       return inputGroup;
@@ -119,21 +123,22 @@ class LogForm extends Form {
     const inputs = this.generateInputs(exercises, title);
 
     return (
-      <div id="template-form">
-        <form onSubmit={this.handleSubmit}>
+      <form id="log-form" onSubmit={this.handleSubmit}>
+        <h2>Log Form</h2>
+        <div id="exercises-container">
           {inputs.map((input, i) => {
             return (
-              <div>
-                <h3>{input.title}</h3>
+              <div className="exercise-group">
+                <h3>{`#${i + 1}: ${input.title}`}</h3>
                 {inputs[i].rounds.map(roundInput => {
                   return roundInput;
                 })}
               </div>
             );
           })}
-          {this.renderButton("Save")}
-        </form>
-      </div>
+        </div>
+        <div className="save-button">{this.renderButton("Save")}</div>
+      </form>
     );
   }
 }
