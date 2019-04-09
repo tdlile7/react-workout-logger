@@ -6,7 +6,7 @@ const roundSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 0,
-    max: 10
+    max: 20
   },
   reps: {
     type: Number,
@@ -18,7 +18,7 @@ const roundSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 0,
-    max: 150
+    max: 200
   }
 });
 
@@ -71,7 +71,7 @@ function validateLog(log) {
                 set: Joi.number()
                   .required()
                   .min(0)
-                  .max(30),
+                  .max(20),
                 reps: Joi.number()
                   .required()
                   .min(0)
@@ -79,7 +79,7 @@ function validateLog(log) {
                 weight: Joi.number()
                   .required()
                   .min(0)
-                  .max(150)
+                  .max(200)
               })
             )
             .min(1)
