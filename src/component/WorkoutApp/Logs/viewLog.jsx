@@ -1,14 +1,23 @@
 import React, { Component } from "react";
+import LogTable from "./logTable";
 
 class ViewLog extends Component {
   render() {
     const { log } = this.props;
-    const { title } = log;
+    const { records } = log;
 
     return (
-      <div id="edit-workout-form">
-        <li>{`${title}`}</li>
-      </div>
+      <React.Fragment>
+        {records.map(exercise => {
+          const { name, data } = exercise;
+          return (
+            <div className="exercise-table">
+              <h2>{name}</h2>
+              {<LogTable data={data} />}
+            </div>
+          );
+        })}
+      </React.Fragment>
     );
   }
 }

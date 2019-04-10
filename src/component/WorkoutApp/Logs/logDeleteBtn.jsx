@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 class LogDeleteBtn extends Component {
   handleSubmit = e => {
@@ -16,11 +18,13 @@ class LogDeleteBtn extends Component {
       <React.Fragment>
         {title}
         <button
+          type="button"
+          className="btn btn-danger btn-md"
           onClick={this.handleSubmit}
           data-toggle={dataToggle}
           data-target={dataTarget}
         >
-          Delete
+          <FontAwesomeIcon icon={faTrashAlt} />
         </button>
       </React.Fragment>
     );
