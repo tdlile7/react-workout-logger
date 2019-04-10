@@ -8,11 +8,11 @@ class ViewLog extends Component {
 
     return (
       <React.Fragment>
-        {records.map(exercise => {
+        {records.map((exercise, i) => {
           const { name, data } = exercise;
           return (
             <div className="exercise-table">
-              <h2>{name}</h2>
+              <h2>{`#${i + 1}: ${name}`}</h2>
               {<LogTable data={data} />}
             </div>
           );

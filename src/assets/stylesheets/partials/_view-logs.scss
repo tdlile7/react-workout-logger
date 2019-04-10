@@ -1,0 +1,120 @@
+#logs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+
+  h1 {
+    margin-top: 10vh;
+    padding: 20px;
+    font-size: 1.75rem;
+    border: 2px solid black;
+    border-radius: 20px;
+    background: white;
+  }
+
+  #saved-logs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-height: 80%;
+
+    > button {
+      min-height: 10vh;
+      width: 40%;
+      margin: 1px 0;
+      font-size: 1.5rem;
+    }
+
+    .modal {
+      .modal-dialog {
+        min-width: 60vw;
+
+        .modal-header {
+          h2 {
+            width: 100%;
+            padding: 2.5px;
+
+            .btn-danger {
+              margin: 0 10px;
+            }
+          }
+
+          .close {
+            margin: 0;
+          }
+        }
+
+        .modal-body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .exercise-table {
+            width: 90%;
+            margin-bottom: 15px;
+
+            h2 {
+              margin-bottom: 15px;
+            }
+
+            table {
+              border: 2px solid black;
+              table-layout: fixed;
+
+              thead {
+                color: rgb(49, 49, 49);
+
+                th {
+                  border-bottom: 2px solid black;
+                  background: rgb(0, 140, 255);
+                  font-size: 1.25rem;
+                  font-weight: bold;
+
+                  &:hover {
+                    cursor: pointer;
+                  }
+                }
+              }
+
+              tbody {
+                color: rgb(49, 49, 49);
+
+                tr {
+                  border-bottom: 2px solid black;
+                  background: rgb(182, 222, 255);
+
+                  &:hover {
+                    cursor: pointer;
+                    background: rgb(95, 181, 252);
+                  }
+
+                  td {
+                    font-size: 1.15rem;
+                    padding: 10px;
+
+                    &:nth-child(3):after {
+                      content: " lb";
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .modal-footer {
+          border: none;
+
+          .btn {
+            width: 25%;
+            font-size: 1.15rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -68,7 +68,7 @@ class LogForm extends Form {
               <div>{`${i}`}</div>
             </h4>
             {this.renderInput(title, reps, "Reps", "number", 1, 30)}
-            {this.renderInput(title, weight, "Weight", "number", 1, 200)}
+            {this.renderInput(title, weight, "Weight (lbs)", "number", 1, 200)}
           </div>
         );
       }

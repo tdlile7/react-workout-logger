@@ -15,6 +15,7 @@ import {
 } from "../../services/logComponentService";
 import auth from "../../services/authService";
 import { Route } from "react-router-dom";
+import { toast } from "react-toastify";
 
 class WorkoutApp extends Component {
   state = {
@@ -33,6 +34,7 @@ class WorkoutApp extends Component {
       var currentTime = new Date().getTime() / 1000;
       if (currentTime > tokenExp) {
         auth.logout();
+        toast.error("An unexpected error occurrred.");
         this.props.history.replace("/");
         return;
       }

@@ -13,21 +13,21 @@ class TableBody extends Component {
   };
 
   render() {
-    const { data, columns, order } = this.props;
-    if (order)
-      return (
-        <tbody>
-          {data.map(item => (
-            <tr key={item._id}>
-              {columns.map(column => (
-                <td key={this.createKey(item, column)}>
-                  {this.renderCell(item, column)}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      );
+    const { data, columns } = this.props;
+
+    return (
+      <tbody>
+        {data.map(item => (
+          <tr key={item._id}>
+            {columns.map(column => (
+              <td key={this.createKey(item, column)}>
+                {this.renderCell(item, column)}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+    );
   }
 }
 

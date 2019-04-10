@@ -12,8 +12,8 @@ class Instructions extends Component {
         <h3>How to Get Started:</h3>
         <ol>
           <li>
-            First create and save custom workout routines that you will be used
-            as templates for future workouts.
+            First create and save custom workout routines which you will use as
+            templates for future workouts.
           </li>
           <li>
             Create new logs to record weights performed for each set of every
