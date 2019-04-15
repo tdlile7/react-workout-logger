@@ -107,7 +107,6 @@ class LogForm extends Form {
       title: workout.title,
       records
     };
-    console.log("New Log Submitted:", newLog);
     onLogSubmit(newLog);
 
     const data = { ...this.state.data };

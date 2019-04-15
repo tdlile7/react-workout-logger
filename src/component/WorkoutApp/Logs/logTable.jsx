@@ -16,7 +16,6 @@ class LogTable extends Component {
     const { path, order } = sortColumn;
     const { data } = this.props;
     const sortedData = sort(data, path, order);
-    console.log("data:", sortedData);
 
     const columns = [
       { path: "set", label: "Set" },

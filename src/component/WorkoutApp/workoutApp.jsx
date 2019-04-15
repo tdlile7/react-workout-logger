@@ -41,7 +41,6 @@ class WorkoutApp extends Component {
 
       const { data: workouts } = await getWorkouts();
       const { data: logs } = await getLogs();
-      console.log("Logs", logs);
 
       this.setState({ workouts, logs });
     }

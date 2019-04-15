@@ -12,7 +12,6 @@ export function getWorkouts() {
 }
 
 export function saveWorkout(workout) {
-  console.log(workout);
   return http.post(apiEndpoint, workout);
 }
 
