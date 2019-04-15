@@ -34,7 +34,7 @@ class LogForm extends Form {
     return Joi.number()
       .required()
       .min(1)
-      .max(30)
+      .max(100)
       .label("Reps");
   };
 
@@ -42,7 +42,7 @@ class LogForm extends Form {
     return Joi.number()
       .required()
       .min(1)
-      .max(200)
+      .max(1000)
       .label("Weight");
   };
 
@@ -67,8 +67,8 @@ class LogForm extends Form {
               <div>Set</div>
               <div>{`${i}`}</div>
             </h4>
-            {this.renderInput(title, reps, "Reps", "number", 1, 30)}
-            {this.renderInput(title, weight, "Weight (lbs)", "number", 1, 200)}
+            {this.renderInput(title, reps, "Reps", "number", 1, 100)}
+            {this.renderInput(title, weight, "Weight (lbs)", "number", 1, 1000)}
           </div>
         );
       }

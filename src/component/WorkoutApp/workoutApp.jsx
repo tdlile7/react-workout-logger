@@ -34,7 +34,7 @@ class WorkoutApp extends Component {
       var currentTime = new Date().getTime() / 1000;
       if (currentTime > tokenExp) {
         auth.logout();
-        toast.error("An unexpected error occurrred.");
+        toast.error("Session has expired. Please login again.");
         this.props.history.replace("/");
         return;
       }
@@ -86,10 +86,15 @@ class WorkoutApp extends Component {
   };
 
   handleLogSubmit = async log => {
-    await saveLog(log);
-    const { data: logs } = await getLogs();
-    this.props.history.push("/workout-app/logs");
-    this.setState({ logs });
+    try {
+      await saveLog(log);
+      const { data: logs } = await getLogs();
+      this.props.history.push("/workout-app/logs");
+      this.setState({ logs });
+    } catch (err) {
+      auth.logout();
+      this.props.history.replace("/");
+    }
   };
 
   handleLogDelete = async logId => {

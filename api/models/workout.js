@@ -5,20 +5,20 @@ const exerciseSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 1,
     maxlength: 50
   },
   reps: {
     type: Number,
     required: true,
-    min: 0,
-    max: 30
+    min: 1,
+    max: 100
   },
   sets: {
     type: Number,
     required: true,
-    min: 0,
-    max: 10
+    min: 1,
+    max: 50
   }
 });
 
@@ -48,15 +48,15 @@ function validateWorkout(workout) {
         Joi.object().keys({
           name: Joi.string()
             .required()
-            .min(5)
+            .min(1)
             .max(50),
           reps: Joi.number()
-            .min(0)
-            .max(30)
+            .min(1)
+            .max(100)
             .required(),
           sets: Joi.number()
-            .min(0)
-            .max(10)
+            .min(1)
+            .max(50)
             .required()
         })
       )

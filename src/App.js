@@ -3,7 +3,9 @@ import WorkoutApp from "./component/WorkoutApp/workoutApp";
 import NavBar from "./component/fixed/navBar";
 import Landing from "./component/Landing/landing";
 import { Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import auth from "./services/authService";
+import "react-toastify/dist/ReactToastify.css";
 import "./assets/stylesheets/app.scss";
 
 class App extends Component {
@@ -19,6 +21,7 @@ class App extends Component {
 
     return (
       <div id="app" className="loader">
+        <ToastContainer />
         <NavBar user={user} showLoader={showLoader} />
         <div id="content">
           <Switch>

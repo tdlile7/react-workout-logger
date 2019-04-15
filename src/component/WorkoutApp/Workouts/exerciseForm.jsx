@@ -15,16 +15,18 @@ class ExerciseForm extends Form {
   schema = {
     name: Joi.string()
       .required()
+      .min(1)
+      .max(50)
       .label("Name"),
     reps: Joi.number()
       .required()
       .min(1)
-      .max(30)
+      .max(100)
       .label("Reps"),
     sets: Joi.number()
       .required()
       .min(1)
-      .max(20)
+      .max(50)
       .label("Sets")
   };
 
@@ -49,8 +51,8 @@ class ExerciseForm extends Form {
         </h2>
         <form onSubmit={this.handleSubmit}>
           {this.renderInput(title, "name", "Name", "text")}
-          {this.renderInput(title, "reps", "Reps", "number", 1, 30)}
-          {this.renderInput(title, "sets", "Sets", "number", 1, 20)}
+          {this.renderInput(title, "reps", "Reps", "number", 1, 100)}
+          {this.renderInput(title, "sets", "Sets", "number", 1, 50)}
           {this.renderButton("Save")}
         </form>
       </div>

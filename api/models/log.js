@@ -5,20 +5,20 @@ const roundSchema = new mongoose.Schema({
   set: {
     type: Number,
     required: true,
-    min: 0,
-    max: 20
+    min: 1,
+    max: 50
   },
   reps: {
     type: Number,
     required: true,
-    min: 0,
-    max: 30
+    min: 1,
+    max: 100
   },
   weight: {
     type: Number,
     required: true,
     min: 0,
-    max: 200
+    max: 1000
   }
 });
 
@@ -63,23 +63,23 @@ function validateLog(log) {
         Joi.object().keys({
           name: Joi.string()
             .required()
-            .min(5)
+            .min(1)
             .max(50),
           data: Joi.array()
             .items(
               Joi.object().keys({
                 set: Joi.number()
                   .required()
-                  .min(0)
-                  .max(20),
+                  .min(1)
+                  .max(50),
                 reps: Joi.number()
                   .required()
-                  .min(0)
-                  .max(30),
+                  .min(1)
+                  .max(100),
                 weight: Joi.number()
                   .required()
                   .min(0)
-                  .max(200)
+                  .max(1000)
               })
             )
             .min(1)

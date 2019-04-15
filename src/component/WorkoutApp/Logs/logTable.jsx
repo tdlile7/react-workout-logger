@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Table from "../../common/table";
+import sort from "../../../util/objectSort";
 
 class LogTable extends Component {
   state = {
@@ -12,7 +13,10 @@ class LogTable extends Component {
 
   render() {
     const { sortColumn } = this.state;
+    const { path, order } = sortColumn;
     const { data } = this.props;
+    const sortedData = sort(data, path, order);
+    console.log("data:", sortedData);
 
     const columns = [
       { path: "set", label: "Set" },
@@ -25,7 +29,7 @@ class LogTable extends Component {
         columns={columns}
         sortColumn={sortColumn}
         onSort={this.handleSort}
-        data={data}
+        data={sortedData}
       />
     );
   }
