@@ -11,6 +11,7 @@
   width: 100%;
   background: white;
   opacity: 0.75;
+  overflow: hidden;
 
   > * {
     width: 80%;
@@ -19,7 +20,7 @@
 
   p,
   ol li {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
   }
 
@@ -33,11 +34,33 @@
 
   h3 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-decoration: underline;
   }
 
   > :not(h3) {
     padding: 1.5rem 0;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  #instructions {
+    p,
+    ol li {
+      font-size: 1.25rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 780px) {
+  #instructions {
+    p,
+    ol li {
+      font-size: 1.5rem;
+    }
   }
 }
