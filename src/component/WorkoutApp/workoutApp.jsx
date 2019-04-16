@@ -25,20 +25,25 @@ class WorkoutApp extends Component {
     workoutTitle: "Workout Name"
   };
 
-  //If user is not logged in, browser will be redirected to landing page
   async componentDidMount() {
+    //If user is not logged in, browser will be redirected to landing page
     const user = auth.getCurrentUser();
     if (!user) this.props.history.replace("/");
     else {
       var tokenExp = user.exp;
       var currentTime = new Date().getTime() / 1000;
+
+      //Check if jwt token has expired. If so, user will be logged out.
       if (currentTime > tokenExp) {
         auth.logout();
+
+        //Display message to browser when jwt token has expired.
         toast.error("Session has expired. Please login again.");
         this.props.history.replace("/");
         return;
       }
 
+      //Request saved workouts and logs previously submitted to the database for current logged in user.
       const { data: workouts } = await getWorkouts();
       const { data: logs } = await getLogs();
 
@@ -46,23 +51,7 @@ class WorkoutApp extends Component {
     }
   }
 
-  handleExerciseSubmit = exercise => {
-    if (this.state.exercises.length === 0)
-      this.setState({ exercises: [exercise] });
-    else {
-      const exercises = [...this.state.exercises];
-      exercises.push(exercise);
-      this.setState({ exercises });
-    }
-  };
-
-  handleExerciseEdit = (exercise, index) => {
-    const exercises = [...this.state.exercises];
-    const id = exercises[index].id;
-    exercises[index] = { id, ...exercise };
-    this.setState({ exercises });
-  };
-
+  //Submit new workout to the database
   handleWorkoutSubmit = async workout => {
     const title = this.state.workoutTitle;
     const newWorkout = { exercises: workout, title };
@@ -77,6 +66,7 @@ class WorkoutApp extends Component {
     }
   };
 
+  //Delete a selected previously saved workout from the database
   handleWorkoutDelete = async workoutId => {
     await deleteWorkout(workoutId);
     const { data: workouts } = await getWorkouts();
@@ -84,6 +74,7 @@ class WorkoutApp extends Component {
     this.setState({ workouts });
   };
 
+  //Submit new log to the database
   handleLogSubmit = async log => {
     try {
       await saveLog(log);
@@ -96,6 +87,7 @@ class WorkoutApp extends Component {
     }
   };
 
+  //Delete a selected previously saved log from the database
   handleLogDelete = async logId => {
     await deleteLog(logId);
     const { data: logs } = await getLogs();
@@ -103,6 +95,33 @@ class WorkoutApp extends Component {
     this.setState({ logs });
   };
 
+  //Remaining functions pertain to a new workout template being created
+
+  //Change title of the new workout template
+  handleTitleChange = newTitle => {
+    this.setState({ workoutTitle: newTitle });
+  };
+
+  //Add new exercise to new workout template's exercise list
+  handleExerciseSubmit = exercise => {
+    if (this.state.exercises.length === 0)
+      this.setState({ exercises: [exercise] });
+    else {
+      const exercises = [...this.state.exercises];
+      exercises.push(exercise);
+      this.setState({ exercises });
+    }
+  };
+
+  //Edit an exercise on the exercise list
+  handleExerciseEdit = (exercise, index) => {
+    const exercises = [...this.state.exercises];
+    const id = exercises[index].id;
+    exercises[index] = { id, ...exercise };
+    this.setState({ exercises });
+  };
+
+  //Delete an exercise on the exercise list
   handleDelete = exercise => {
     let exercises = [...this.state.exercises];
     const index = exercises.indexOf(exercise);
@@ -110,6 +129,7 @@ class WorkoutApp extends Component {
     this.setState({ exercises });
   };
 
+  //Move an exercise up one space on the exercise list
   handleShiftUp = exercise => {
     let exercises = [...this.state.exercises];
     const index = exercises.indexOf(exercise);
@@ -119,6 +139,7 @@ class WorkoutApp extends Component {
     this.setState({ exercises });
   };
 
+  //Move an exercise down one space on the exercise list
   handleShiftDown = exercise => {
     let exercises = [...this.state.exercises];
     const index = exercises.indexOf(exercise);
@@ -128,9 +149,6 @@ class WorkoutApp extends Component {
     this.setState({ exercises });
   };
 
-  handleTitleChange = newTitle => {
-    this.setState({ workoutTitle: newTitle });
-  };
   render() {
     const { exercises, workouts, logs, workoutTitle } = this.state;
 
