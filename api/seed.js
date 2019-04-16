@@ -83,17 +83,17 @@ const logData = [
           {
             set: 1,
             reps: 8,
-            weight: 0
+            weight: 10
           },
           {
             set: 2,
-            reps: 8,
-            weight: 0
+            reps: 10,
+            weight: 15
           },
           {
             set: 3,
             reps: 8,
-            weight: 0
+            weight: 10
           }
         ]
       }
@@ -112,7 +112,7 @@ const logData = [
           },
           {
             set: 2,
-            reps: 12,
+            reps: 10,
             weight: 30
           },
           {
@@ -128,16 +128,16 @@ const logData = [
           {
             set: 1,
             reps: 8,
-            weight: 20
+            weight: 17.5
           },
           {
             set: 2,
-            reps: 8,
-            weight: 25
+            reps: 12,
+            weight: 20
           },
           {
             set: 3,
-            reps: 8,
+            reps: 10,
             weight: 25
           }
         ]
