@@ -14,7 +14,7 @@
   }
   #exercises-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-column-gap: 5px;
     grid-row-gap: 10px;
     padding: 10px;
@@ -81,14 +81,31 @@
     height: 12.5%;
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    position: relative;
-    right: 10%;
 
     button {
-      height: 70%;
-      width: 15%;
+      height: 75%;
+      width: 40%;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  #log-form {
+    #exercises-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .save-button {
+      justify-content: flex-end;
+      position: relative;
+      right: 10%;
+
+      button {
+        height: 70%;
+        width: 15%;
+      }
     }
   }
 }
