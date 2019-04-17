@@ -1,11 +1,14 @@
-// For simplicity, I changed the implementation of this module
-// and removed Raven. We can always add that in the future
-// and this module is the only module we need to modify.
+import Raven from "raven-js";
 
-function init() {}
+function init() {
+  Raven.config("https://63fe9703a1ec4bf7983b3c44bc2a40f2@sentry.io/1441451", {
+    release: "1-0-0",
+    environment: "development"
+  }).install();
+}
 
 function log(error) {
-  console.error(error);
+  Raven.captureException(error);
 }
 
 export default {
