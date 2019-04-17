@@ -35,15 +35,23 @@
 }
 
 @media (min-width: 600px) {
-  #content-nav > a {
-    height: 20vh;
-    width: 50vw;
+  #content-nav {
+    > a {
+      height: 20vh;
+      width: 50vw;
+
+      &:first-child {
+        margin-top: 10vh;
+      }
+    }
   }
 }
 
 @media (min-width: 768px) {
-  #content-nav > a {
-    width: 35vw;
+  #content-nav {
+    > a {
+      width: 35vw;
+    }
   }
 }
 
@@ -55,7 +63,11 @@
 
     > a {
       width: 25vw;
-      margin: 5vw 2.5vw;
+      margin: 20vh 2.5vw;
+
+      &:first-child {
+        margin-top: 20vh;
+      }
     }
   }
 }
