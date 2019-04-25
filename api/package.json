@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "test": "jest --watchAll --verbose",
     "seed": "node seed.js"
   },
   "dependencies": {
@@ -22,8 +21,6 @@
     "winston-mongodb": "^3.0.2"
   },
   "devDependencies": {
-    "debug": "^2.6.9",
-    "jest": "^24.1.0",
-    "supertest": "^3.0.0"
+    "debug": "^2.6.9"
   }
 }
