@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import WorkoutApp from "./component/workoutApp/workoutApp";
+import WorkoutApp from "./component/app/workoutApp";
 import NavBar from "./component/fixed/navBar";
 import Landing from "./component/landing/landing";
 import { Switch, Route } from "react-router-dom";
