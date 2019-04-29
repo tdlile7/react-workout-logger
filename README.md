@@ -1,4 +1,4 @@
-**For best results, recommended browser: Google Chrome**
+**Recommended browser: Google Chrome**
 
 *** 
 
