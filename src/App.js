@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import WorkoutApp from "./component/WorkoutApp/workoutApp";
+import WorkoutApp from "./component/workoutApp/workoutApp";
 import NavBar from "./component/fixed/navBar";
-import Landing from "./component/Landing/landing";
+import Landing from "./component/landing/landing";
 import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import auth from "./services/authService";
